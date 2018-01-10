@@ -5,7 +5,7 @@
   "author": "shadforth <s3332777@student.rmit.edu.au>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --host 0.0.0.0 --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "test": "npm run unit",
@@ -95,6 +95,8 @@
     }
   },
   "babel": {
-    "presets": [ "env" ]
+    "presets": [
+      "env"
+    ]
   }
 }

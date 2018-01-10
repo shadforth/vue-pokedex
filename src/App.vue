@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <HelloWorld/>
+    <Pokedex/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Pokedex from './components/Pokedex'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Pokedex
   }
 }
 </script>
