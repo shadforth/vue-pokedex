@@ -2,24 +2,33 @@
 // ============================================================================
 <template>
   <b-container fluid>
-    <div class="col-md-8 col-centred">
+    <div class="col-md-10 col-centred">
       <h1>{{ title }}</h1>
       <b-row>
-          <!-- Selection -->
-          <b-col>
-            <b-form-select class="mb-3" v-model="selected" :select-size="10">
-              <option v-for="item in list" :key="item.name">{{ item.name }}</option>
-            </b-form-select>
-          </b-col>
-          <!-- Information -->
-          <b-col>
-            <div v-show="selected">
-              <h3>{{ pokemon.id }} {{ pokemon.name }}</h3>
-              <div class="type-box" v-for="type in pokemon.types" :key="type" v-bind:class="type">{{ type | capitalise }}</div>
-              <img class="sprite" v-bind:src="pokemon.image">
-              <p>{{ pokemon.description }}</p>
-            </div>
-          </b-col>
+        <b-col>
+          <!-- Table -->
+          <b-table hover outlined small
+                  :fields="fields"
+                  :items="list"
+                  class="pokedex-table"
+                  v-on:row-clicked="catchPokemon"
+                  :sort-by.sync="sortBy"
+                  :sort-desc.sync="sortDesc">
+            <template slot="pokeball">
+              <img src="../assets/images/poke-ball.png">
+            </template>
+          </b-table>
+        </b-col>
+        <!-- Information -->
+        <b-col>
+          <div v-show="Object.keys(pokemon.weight).length > 0">
+            <h3><img src="../assets/images/poke-ball.png"> #{{ pokemon.id }} {{ pokemon.name }}</h3>
+            <div class="type-box" v-for="type in pokemon.types" :key="type" v-bind:class="type">{{ type | capitalise }}</div>
+            <img class="sprite" v-if="pokemon.id" :src="sprite" />
+            <p>{{ pokemon.weight.maximum }} {{ pokemon.height.maximum }} </p>
+            <p>{{ pokemon.description }}</p>
+          </div>
+        </b-col>
       </b-row>
     </div>
   </b-container>
@@ -36,17 +45,17 @@ export default {
     return {
       title: 'Pokédex',
       json: json,
-      selected: null,
+      fields: [
+        { key: 'pokeball', sortable: false },
+        { key: 'id',       sortable: true  },
+        { key: 'name',     sortable: true  }
+      ],
+      sortBy: 'id',
+      sortDesc: false,
       list: [],
       pokemon: {
-        id: '',
-        name: '',
-        description: '',
-        image: '',
-        types: [],
-        abilities: [],
-        weight: 0,
-        height: 0
+        weight: {},
+        height: {}
       }
     }
   },
@@ -58,16 +67,16 @@ export default {
       this.list.push(object);
     }
   },
-  watch: {
-    selected: function() {
-      for (var i in json) {
-        if (json[i].name == this.selected) {
-          this.pokemon.id = json[i].id;
-          this.pokemon.name = json[i].name;
-          this.pokemon.types = json[i].types;
-          this.pokemon.description = json[i].about;
-          this.pokemon.image = '../assets/sprites/1.png';
-        }
+  computed: {
+    sprite: function() {
+      return require('../assets/sprites/' + this.pokemon.id + '.png');
+    }
+  },
+  methods: {
+    catchPokemon: function(data) {
+      if (data != null) {
+        this.pokemon = json[Number.parseInt(data.id) - 1];
+        console.log(this.pokemon);
       }
     }
   }
@@ -84,10 +93,21 @@ export default {
   margin: 0 auto;
 }
 
+/* Table */
+.pokedex-table {
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.table > tbody > tr:first-child > td {
+    border: none;
+}
+
 /* Pokemon */
 .sprite {
   display: block;
   padding: 40px;
+  background-color: #FFF;
   border-radius: 0.25rem;
 }
 
@@ -114,8 +134,16 @@ export default {
   background-color: #6C584A;
 }
 
+.dragon {
+  background-color: #6843EF;
+}
+
 .electric {
   background-color: #F2D054;
+}
+
+.fairy {
+  background-color: #E29DAC;
 }
 
 .flying {
@@ -128,6 +156,10 @@ export default {
 
 .fire {
   background-color: #E28544;
+}
+
+.ghost {
+  background-color: #6C5A94;
 }
 
 .grass {
@@ -148,6 +180,10 @@ export default {
 
 .psychic {
   background-color: #E66388;
+}
+
+.rock {
+  background-color: #B4A04A;
 }
 
 .steel {
