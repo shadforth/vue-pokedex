@@ -7,26 +7,34 @@
       <b-row>
         <b-col>
           <!-- Table -->
-          <b-table hover outlined small
-                  :fields="fields"
-                  :items="list"
-                  class="pokedex-table"
-                  v-on:row-clicked="catchPokemon"
-                  :sort-by.sync="sortBy"
-                  :sort-desc.sync="sortDesc">
-            <template slot="pokeball">
-              <img src="../assets/images/poke-ball.png">
-            </template>
-          </b-table>
+          <div id="table-container">
+            <b-table hover outlined small
+                    :fields="fields"
+                    :items="list"
+                    class="pokedex-table"
+                    v-on:row-clicked="catchPokemon"
+                    :sort-by.sync="sortBy"
+                    :sort-desc.sync="sortDesc">
+              <template slot="pokeball" slot-scope="col">
+                <img src="../assets/images/poke-ball.png">
+              </template>
+            </b-table>
+          </div>
         </b-col>
         <!-- Information -->
         <b-col>
           <div v-show="Object.keys(pokemon.weight).length > 0">
             <h3><img src="../assets/images/poke-ball.png"> #{{ pokemon.id }} {{ pokemon.name }}</h3>
             <div class="type-box" v-for="type in pokemon.types" :key="type" v-bind:class="type">{{ type | capitalise }}</div>
-            <img class="sprite" v-if="pokemon.id" :src="sprite" />
-            <p>{{ pokemon.weight.maximum }} {{ pokemon.height.maximum }} </p>
+            <img class="sprite" v-if="pokemon.id" :src="getSprite(pokemon.id)" />
+            <table class="table table-bordered">
+              <tr>
+                <td>{{ pokemon.weight.maximum }}</td>
+                <td>{{ pokemon.height.maximum }}</td>
+              </tr>
+            </table>
             <p>{{ pokemon.description }}</p>
+            <vue-audio v-if="pokemon.id" :file="getAudio"></vue-audio>
           </div>
         </b-col>
       </b-row>
@@ -38,6 +46,7 @@
 // ============================================================================
 <script>
 import json from '../json/data.json';
+import VueAudio from 'vue-audio';
 
 export default {
   name: 'Pokedex',
@@ -45,19 +54,24 @@ export default {
     return {
       title: 'Pokédex',
       json: json,
+      list: [],
+      pokemon: {
+        weight: {},
+        height: {},
+        fast_attacks: {},
+        special_attacks: {}
+      },
       fields: [
         { key: 'pokeball', sortable: false },
         { key: 'id',       sortable: true  },
         { key: 'name',     sortable: true  }
       ],
       sortBy: 'id',
-      sortDesc: false,
-      list: [],
-      pokemon: {
-        weight: {},
-        height: {}
-      }
+      sortDesc: false
     }
+  },
+  components: {
+    'vue-audio': VueAudio
   },
   mounted: function() {
     for (let i in json) {
@@ -68,15 +82,17 @@ export default {
     }
   },
   computed: {
-    sprite: function() {
-      return require('../assets/sprites/' + this.pokemon.id + '.png');
+    getSprite: function(id) {
+      return require('../assets/sprites/' + id + '.png');
+    },
+    getAudio: function(id) {
+      return require('../assets/audio/' + this.pokemon.id + '.mp3');
     }
   },
   methods: {
     catchPokemon: function(data) {
       if (data != null) {
         this.pokemon = json[Number.parseInt(data.id) - 1];
-        console.log(this.pokemon);
       }
     }
   }
@@ -94,6 +110,15 @@ export default {
 }
 
 /* Table */
+#table-container {
+  height: 542px;
+  overflow: auto;
+}
+
+#table-container::-webkit-scrollbar {
+  display: none;
+}
+
 .pokedex-table {
   border: 1px solid white;
   cursor: pointer;
