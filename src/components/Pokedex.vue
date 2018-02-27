@@ -2,40 +2,72 @@
 // ============================================================================
 <template>
   <b-container fluid>
-    <div class="col-md-10 col-centred">
-      <h1>{{ title }}</h1>
+    <div class="col-md-8">
       <b-row>
+        <!-- Pokemon information -->
         <b-col>
-          <!-- Table -->
-          <div id="table-container">
-            <b-table hover outlined small
-                    :fields="fields"
-                    :items="list"
-                    class="pokedex-table"
-                    v-on:row-clicked="catchPokemon"
-                    :sort-by.sync="sortBy"
-                    :sort-desc.sync="sortDesc">
-              <template slot="pokeball" slot-scope="col">
-                <img src="../assets/images/poke-ball.png">
-              </template>
-            </b-table>
+          <div id="information-panel">
+            <img src="../assets/images/poke-ball.png" style="float:right;">
+            <div v-show="Object.keys(pokemon.weight).length > 0">
+              <span class="pokemon-id">#{{ pokemon.id }}</span><br>
+              <h3>{{ pokemon.name }}</h3>
+
+              <!-- Type boxes and audio -->
+              <div class="type-box" v-for="type in pokemon.types" :key="type" v-bind:class="type.toLowerCase()">{{ type }}</div>
+              <vue-audio class="pokemon-cry" v-if="pokemon.id" :file="getAudio(pokemon.id)"></vue-audio>
+
+              <img class="sprite" v-if="pokemon.id" :src="getSprite(pokemon.id)" />
+              <p>{{ pokemon.description }}</p>
+              <strong>Base statistics</strong><br>
+              <table class="table">
+                <tr>
+                  <td><strong>Height</strong><br>{{ pokemon.height.maximum }}</td>
+                  <td><strong>Weight</strong><br>{{ pokemon.weight.maximum }}</td>
+                  <td><strong>Type</strong><br><span v-if="pokemon.types">{{ (pokemon.types).join("/") }}</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Max. HP</strong><br>{{ pokemon.max_hp }}</td>
+                  <td><strong>Attack</strong><br>{{ pokemon.base_attack }}</td>
+                  <td><strong>Defense</strong><br>{{ pokemon.base_defense }}</td>
+                </tr>
+              </table>
+              <strong>Evolutions</strong><br>
+              <table class="table">
+                <tr>
+                  <td>
+                      <div class="evol-sprite-container" v-for="evolution in pokemon.previous_evolution" :key="evolution.id">
+                        <img class="evol-sprite" :src="getSprite(evolution.id)">
+                        <p>{{ evolution.name }}</p>
+                      </div>
+                      <div class="evol-sprite-container" v-for="evolution in pokemon.next_evolution" :key="evolution.id">
+                        <img class="evol-sprite" :src="getSprite(evolution.id)">
+                        <p>{{ evolution.name }}</p>
+                      </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
           </div>
         </b-col>
-        <!-- Information -->
         <b-col>
-          <div v-show="Object.keys(pokemon.weight).length > 0">
-            <h3><img src="../assets/images/poke-ball.png"> #{{ pokemon.id }} {{ pokemon.name }}</h3>
-            <div class="type-box" v-for="type in pokemon.types" :key="type" v-bind:class="type">{{ type | capitalise }}</div>
-            <img class="sprite" v-if="pokemon.id" :src="getSprite(pokemon.id)" />
-            <table class="table table-bordered">
-              <tr>
-                <td>{{ pokemon.weight.maximum }}</td>
-                <td>{{ pokemon.height.maximum }}</td>
-              </tr>
-            </table>
-            <p>{{ pokemon.description }}</p>
-            <vue-audio v-if="pokemon.id" :file="getAudio"></vue-audio>
+        <!-- Pokedex table -->
+        <div class="panel panel-default">
+          <div id="table-overflow">
+            <!-- Search bar -->
+            <b-form-input id="search-bar" v-model="filter" placeholder="Type to search..." />
+            <div id="table-container">
+              <b-table hover
+                      :fields="fields"
+                      :items="list"
+                      :filter="filter"
+                      class="pokedex-table table-borderless"
+                      v-on:row-clicked="getPokemon"
+                      :sort-by.sync="sortBy"
+                      :sort-desc.sync="sortDesc">
+              </b-table>
+            </div>
           </div>
+        </div>
         </b-col>
       </b-row>
     </div>
@@ -62,12 +94,12 @@ export default {
         special_attacks: {}
       },
       fields: [
-        { key: 'pokeball', sortable: false },
         { key: 'id',       sortable: true  },
         { key: 'name',     sortable: true  }
       ],
       sortBy: 'id',
-      sortDesc: false
+      sortDesc: false,
+      filter: null,
     }
   },
   components: {
@@ -76,24 +108,22 @@ export default {
   mounted: function() {
     for (let i in json) {
       let object = {};
-      object['id'] = json[i].id;
-      object['name'] = json[i].name;
+      object.id = json[i].id;
+      object.name = json[i].name;
       this.list.push(object);
     }
   },
-  computed: {
-    getSprite: function(id) {
-      return require('../assets/sprites/' + id + '.png');
-    },
-    getAudio: function(id) {
-      return require('../assets/audio/' + this.pokemon.id + '.mp3');
-    }
-  },
   methods: {
-    catchPokemon: function(data) {
+    getPokemon: function(data) {
       if (data != null) {
         this.pokemon = json[Number.parseInt(data.id) - 1];
       }
+    },
+    getSprite: function(id) {
+      return require('../assets/sprites/' + String(id).padStart(3, "0") + '.png');
+    },
+    getAudio: function(id) {
+      return require('../assets/audio/' + id + '.mp3');
     }
   }
 }
@@ -102,17 +132,32 @@ export default {
 // CSS
 // ============================================================================
 <style scoped>
-
 /* Global */
 .col-centred {
-  float: none;
   margin: 0 auto;
 }
 
 /* Table */
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
+}
+
+#table-overflow {
+  overflow: hidden;
+}
+
 #table-container {
-  height: 542px;
+  height: 630px;
+  border: 2px solid #526476;
+  border-top: none;
+  border-radius: 0.35rem;
   overflow: auto;
+  background: #FFF;
 }
 
 #table-container::-webkit-scrollbar {
@@ -120,7 +165,8 @@ export default {
 }
 
 .pokedex-table {
-  border: 1px solid white;
+  padding: 20px;
+  background: #FFF;
   cursor: pointer;
 }
 
@@ -129,94 +175,53 @@ export default {
 }
 
 /* Pokemon */
+#information-panel {
+  width: 500px;
+  min-height: 675px;
+  border-radius: 0.25rem;
+  padding: 20px;
+  background-color: #FFFFFF;
+}
+
+#information-panel h3 {
+  margin-bottom: 5px;
+}
+
+.pokemon-id {
+  color: #AAAAAA;
+}
+
 .sprite {
+  margin: 0 auto;
   display: block;
-  padding: 40px;
-  background-color: #FFF;
-  border-radius: 0.25rem;
+  padding: 5px;
 }
 
-.type-box {
-  display: inline-block;
-  font-weight: 400;
+.evol-sprite-container {
+  float: left;
+  display: block;
+  margin: 5px;
+  border-radius: 0.25rem;
+  padding: 5px 10px;
+  background-color: #EEEEEE;
   text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  border: 1px solid transparent;
-  padding: 0.175rem 0.75rem;
-  margin: auto 7.5px 10px 0;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
 }
 
-/* Types */
-.bug {
-  background-color: #ABB642;
+.evol-sprite-container p {
+  text-align: center;
+  margin-bottom: 5px;
+  color: #888;
 }
 
-.dark {
-  background-color: #6C584A;
+/* Pokemon cry */
+.pokemon-cry {
+  display: inline-block;
 }
 
-.dragon {
-  background-color: #6843EF;
-}
-
-.electric {
-  background-color: #F2D054;
-}
-
-.fairy {
-  background-color: #E29DAC;
-}
-
-.flying {
-  background-color: #A493EA;
-}
-
-.fighting {
-  background-color: #B13C31;
-}
-
-.fire {
-  background-color: #E28544;
-}
-
-.ghost {
-  background-color: #6C5A94;
-}
-
-.grass {
-  background-color: #8BC560;
-}
-
-.ground {
-  background-color: #DBC074;
-}
-
-.normal {
-  background-color: #A8A77D;
-}
-
-.poison {
-  background-color: #94489B;
-}
-
-.psychic {
-  background-color: #E66388;
-}
-
-.rock {
-  background-color: #B4A04A;
-}
-
-.steel {
-  background-color: #B8B8CE;
-}
-
-.water {
-  background-color: #6F91E9;
+/* Search bar */
+#search-bar {
+  margin-bottom: 10px;
+  border: none;
 }
 
 </style>
