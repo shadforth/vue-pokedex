@@ -132,6 +132,7 @@ export default {
 // CSS
 // ============================================================================
 <style scoped>
+
 /* Global */
 .col-centred {
   margin: 0 auto;
@@ -153,7 +154,7 @@ export default {
 
 #table-container {
   height: 630px;
-  border: 2px solid #526476;
+  border: 2px solid #D93E39;
   border-top: none;
   border-radius: 0.35rem;
   overflow: auto;
@@ -220,8 +221,8 @@ export default {
 
 /* Search bar */
 #search-bar {
-  margin-bottom: 10px;
-  border: none;
+  margin: -2px 0 10px 0;
+  border: 2px solid #D93E39;
 }
 
 </style>

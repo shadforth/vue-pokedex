@@ -31,7 +31,7 @@ html, body {
 }
 
 body {
-  background-color: #526476;
+  background-color: #D93E39;
 }
 
 #app {
