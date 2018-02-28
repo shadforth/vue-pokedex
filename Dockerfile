@@ -1,3 +1,5 @@
+# Docker image instructions
+
 FROM node:alpine
 
 RUN mkdir /app

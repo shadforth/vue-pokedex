@@ -2,53 +2,84 @@
 // ============================================================================
 <template>
   <b-container fluid>
-    <div class="col-md-8">
+    <div class="col-md-12">
       <b-row>
-        <!-- Pokemon information -->
         <b-col>
-          <div id="information-panel">
+          <h2>{{ title }}</h2>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <div id="pokemon-info-panel">
             <img src="../assets/images/poke-ball.png" style="float:right;">
             <div v-show="Object.keys(pokemon.weight).length > 0">
-              <span class="pokemon-id">#{{ pokemon.id }}</span><br>
+
+              <!-- Pokemon header information -->
+              <span id="pokemon-id">#{{ pokemon.id }}</span><br>
               <h3>{{ pokemon.name }}</h3>
-
-              <!-- Type boxes and audio -->
               <div class="type-box" v-for="type in pokemon.types" :key="type" v-bind:class="type.toLowerCase()">{{ type }}</div>
-              <vue-audio class="pokemon-cry" v-if="pokemon.id" :file="getAudio(pokemon.id)"></vue-audio>
+              <vue-audio class="pokemon-cry" v-if="pokemon.id" :file="getAudio(pokemon.id)"></vue-audio><br>
+              <div id="description-container">
+                <img id="pokemon-sprite" v-if="pokemon.id" :src="getSprite(pokemon.id)" />
+                <p>{{ pokemon.description }}</p>
+              </div>
 
-              <img class="sprite" v-if="pokemon.id" :src="getSprite(pokemon.id)" />
-              <p>{{ pokemon.description }}</p>
-              <strong>Base statistics</strong><br>
-              <table class="table">
-                <tr>
-                  <td><strong>Height</strong><br>{{ pokemon.height.maximum }}</td>
-                  <td><strong>Weight</strong><br>{{ pokemon.weight.maximum }}</td>
-                  <td><strong>Type</strong><br><span v-if="pokemon.types">{{ (pokemon.types).join("/") }}</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Max. HP</strong><br>{{ pokemon.max_hp }}</td>
-                  <td><strong>Attack</strong><br>{{ pokemon.base_attack }}</td>
-                  <td><strong>Defense</strong><br>{{ pokemon.base_defense }}</td>
-                </tr>
-              </table>
-              <strong>Evolutions</strong><br>
-              <table class="table">
-                <tr>
-                  <td>
-                      <div class="evol-sprite-container" v-for="evolution in pokemon.previous_evolution" :key="evolution.id">
-                        <img class="evol-sprite" :src="getSprite(evolution.id)">
-                        <p>{{ evolution.name }}</p>
-                      </div>
-                      <div class="evol-sprite-container" v-for="evolution in pokemon.next_evolution" :key="evolution.id">
-                        <img class="evol-sprite" :src="getSprite(evolution.id)">
-                        <p>{{ evolution.name }}</p>
-                      </div>
-                  </td>
-                </tr>
-              </table>
+              <!-- Base statistics -->
+              <div id="base-stats-container">
+                <h4 id="base-stats-title">Base statistics</h4>
+                <table class="table responsive">
+                  <tr>
+                    <td><strong>Height</strong><br>{{ pokemon.height.maximum }}</td>
+                    <td><strong>Weight</strong><br>{{ pokemon.weight.maximum }}</td>
+                    <td><strong>Type</strong><br><span v-if="pokemon.types">{{ (pokemon.types).join("/") }}</span></td>
+                    <td><strong>Generation</strong><br><span v-if="pokemon.generation">{{ pokemon.generation.split(' ')[1] }}</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Max HP</strong><br>{{ pokemon.max_hp }}</td>
+                    <td><strong>Max CP</strong><br>{{ pokemon.max_cp }}</td>
+                    <td><strong>Attack</strong><br>{{ pokemon.base_attack }}</td>
+                    <td><strong>Defense</strong><br>{{ pokemon.base_defense }}</td>
+                  </tr>
+                </table>
+              </div>
+
+              <!-- Special attacks -->
+              <div id="spec-attack-container">
+                <h4 id="spec-attack-title">Special attacks</h4>
+                <table class="table responsive">
+                  <tr v-for="attack in pokemon.special_attacks" :key="attack.name">
+                    <td>{{ attack.name }}</td>
+                    <td>{{ attack.damage }} damage</td>
+                    <td></td>
+                    <td></td>
+                    <td><div class="type-box type-box-sml" v-bind:class="attack.type.toLowerCase()">{{ attack.type }}</div></td>
+                  </tr>
+                </table>
+              </div>
+
+              <!-- Evolutionary forms -->
+              <div id="evol-container" v-if="pokemon.previous_evolution || pokemon.next_evolution">
+                <h4 id="evol-title">Evolutions</h4>
+                <table class="table responsive">
+                  <tr>
+                    <td>
+                        <div class="pokemon-evol-sprite-container" v-for="evolution in pokemon.previous_evolution" :key="evolution.id" v-on:click="getPokemon(evolution)">
+                          <img class="pokemon-evol-sprite" :src="getSprite(evolution.id)">
+                          <p>{{ evolution.name }}</p>
+                        </div>
+                        <div class="pokemon-evol-sprite-container" v-for="evolution in pokemon.next_evolution" :key="evolution.id" v-on:click="getPokemon(evolution)">
+                          <img class="pokemon-evol-sprite" :src="getSprite(evolution.id)">
+                          <p>{{ evolution.name }}</p>
+                        </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
             </div>
           </div>
         </b-col>
+
         <b-col>
         <!-- Pokedex table -->
         <div class="panel panel-default">
@@ -94,8 +125,9 @@ export default {
         special_attacks: {}
       },
       fields: [
-        { key: 'id',       sortable: true  },
-        { key: 'name',     sortable: true  }
+        { key: 'id',    sortable: true  },
+        { key: 'name',  sortable: true  },
+        { key: 'types', sortable: true  }
       ],
       sortBy: 'id',
       sortDesc: false,
@@ -105,60 +137,67 @@ export default {
   components: {
     'vue-audio': VueAudio
   },
-  mounted: function() {
-    for (let i in json) {
-      let object = {};
-      object.id = json[i].id;
-      object.name = json[i].name;
-      this.list.push(object);
-    }
-  },
   methods: {
-    getPokemon: function(data) {
-      if (data != null) {
-        this.pokemon = json[Number.parseInt(data.id) - 1];
-      }
-    },
     getSprite: function(id) {
       return require('../assets/sprites/' + String(id).padStart(3, "0") + '.png');
     },
     getAudio: function(id) {
       return require('../assets/audio/' + id + '.mp3');
+    },
+    getPokemon: function(data) {
+      if (data != null) {
+        let pokeid = data.id;
+        if (pokeid.length != 3) {
+          pokeid = String(pokeid).padStart(3, "0");
+        }
+        this.pokemon = json[Number.parseInt(pokeid) - 1];
+      }
     }
+  },
+  mounted: function() {
+    for (let i in json) {
+      let object = {};
+      object.id = json[i].id;
+      object.name = json[i].name;
+      object.types = json[i].types.join("/");
+      this.list.push(object);
+    }
+    this.getPokemon(json[0]);
   }
 }
 </script>
 
 // CSS
 // ============================================================================
-<style scoped>
+<style lang="scss" scoped>
 
-/* Global */
-.col-centred {
-  margin: 0 auto;
+$maincolor: #D93E39;
+$white: #FFFFFF;
+
+/* Fonts */
+h2 {
+  font-size: 14px;
+  font-weight: bold;
+  color: lighten($maincolor, 40%);
 }
 
-/* Table */
-.table-borderless > tbody > tr > td,
-.table-borderless > tbody > tr > th,
-.table-borderless > tfoot > tr > td,
-.table-borderless > tfoot > tr > th,
-.table-borderless > thead > tr > td,
-.table-borderless > thead > tr > th {
-    border: none;
+h4 {
+  font-size: 14px;
+  font-weight: bold;
 }
 
+/* Search table */
 #table-overflow {
   overflow: hidden;
 }
 
 #table-container {
-  height: 630px;
-  border: 2px solid #D93E39;
+  height: 752px;
+  border: 2px solid $maincolor;
   border-top: none;
   border-radius: 0.35rem;
   overflow: auto;
-  background: #FFF;
+  background: $white;
 }
 
 #table-container::-webkit-scrollbar {
@@ -166,55 +205,82 @@ export default {
 }
 
 .pokedex-table {
-  padding: 20px;
-  background: #FFF;
+  padding: 15px;
+  background: $white;
   cursor: pointer;
 }
 
-.table > tbody > tr:first-child > td {
-    border: none;
-}
-
 /* Pokemon */
-#information-panel {
-  width: 500px;
-  min-height: 675px;
+#pokemon-info-panel {
+  min-height: 680px;
+  margin: 0 0 5px 0;
   border-radius: 0.25rem;
-  padding: 20px;
-  background-color: #FFFFFF;
+  padding: 15px 15px 0 15px;
+  background-color: $white;
 }
 
-#information-panel h3 {
+#pokemon-info-panel h3 {
   margin-bottom: 5px;
 }
 
-.pokemon-id {
+#pokemon-id {
   color: #AAAAAA;
 }
 
-.sprite {
+#pokemon-sprite {
   margin: 0 auto;
   display: block;
   padding: 5px;
 }
 
-.evol-sprite-container {
+.pokemon-evol-sprite-container {
   float: left;
   display: block;
   margin: 5px;
   border-radius: 0.25rem;
-  padding: 5px 10px;
-  background-color: #EEEEEE;
+  padding: 0 10px;
+  background-color: #F0F0F0;
   text-align: center;
+  cursor: pointer;
 }
 
-.evol-sprite-container p {
+.pokemon-evol-sprite-container:hover {
+  background-color: #F3F3F3;
+}
+
+.pokemon-evol-sprite-container p {
   text-align: center;
   margin-bottom: 5px;
-  color: #888;
+  color: #777777;
 }
 
-/* Pokemon cry */
+#spec-attack-container, #evol-container {
+  margin: 15px 0;
+}
+
+/* Pokemon types */
+.type-box {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: 0.175rem 0.5rem 0.160rem 0.5rem;
+    margin: 7px 7.5px 7px 0;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    color: #FFFFFF;
+  }
+
+.type-box-sml {
+  margin: 0;
+}
+
+/* Vue audio */
 .pokemon-cry {
   display: inline-block;
 }
@@ -223,6 +289,30 @@ export default {
 #search-bar {
   margin: -2px 0 10px 0;
   border: 2px solid #D93E39;
+}
+
+/* Responsive */
+@media only screen 
+  and (max-width: 1024px) {
+    #description-container {
+      padding: 5px 0 10px 0;
+      margin: 5px 0;
+    }
+    #pokemon-sprite {
+      display: block;
+      float: left;
+      padding: 5px;
+    }
+}
+
+@media only screen 
+  and (max-width: 810px) {
+    .pokemon-evol-sprite-container {
+      float: none;
+    }
+    #pokemon-info-panel {
+      margin: 0 0 15px 0;
+    }
 }
 
 </style>

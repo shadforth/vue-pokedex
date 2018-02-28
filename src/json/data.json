@@ -355,7 +355,7 @@
         ],
         "special_attacks": [
             {
-                "name": "fire Punch",
+                "name": "Fire Punch",
                 "type": "Fire",
                 "damage": 40
             },
@@ -443,7 +443,7 @@
                 "damage": 35
             },
             {
-                "name": "fire Blast",
+                "name": "Fire Blast",
                 "type": "Fire",
                 "damage": 100
             },
@@ -1222,14 +1222,10 @@
         "max_hp": 679
     },
     {
-        "id": "018",
-        "name": "Pidgeot"
-    },
-    {
         "id": "017",
-        "name": "Pidgeotto",
+        "name": "Pidgeot",
         "generation": "Generation I",
-        "description": "Pidgeotto claims a large area as its own territory. This Pokémon flies around, patrolling its living space. If its territory is violated, it shows no mercy in thoroughly punishing the foe with its sharp claws.",
+        "description": "It spreads its gorgeous wings widely to intimidate enemies. It races through the skies at Mach-2 speed. This Pokémon has a dazzling plumage of beautifully glossy feathers.",
         "types": [
             "Normal",
             "Flying"
@@ -1300,9 +1296,88 @@
         "next_evolution": [
             {
                 "id": 18,
+                "name": "Pidgeotto"
+            }
+        ],
+        "max_cp": 1096,
+        "max_hp": 1223
+    },
+    {
+        "id": "018",
+        "name": "Pidgeotto",
+        "generation": "Generation I",
+        "description": "Pidgeotto claims a large area as its own territory. This Pokémon flies around, patrolling its living space. If its territory is violated, it shows no mercy in thoroughly punishing the foe with its sharp claws.",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "resistant": [
+            "Grass",
+            "Ground",
+            "Bug",
+            "Ghost"
+        ],
+        "weaknesses": [
+            "Electric",
+            "Ice",
+            "Rock"
+        ],
+        "fast_attacks": [
+            {
+                "name": "steel Wing",
+                "type": "Steel",
+                "damage": 15
+            },
+            {
+                "name": "Wing Attack",
+                "type": "Flying",
+                "damage": 9
+            }
+        ],
+        "special_attacks": [
+            {
+                "name": "Aerial Ace",
+                "type": "Flying",
+                "damage": 30
+            },
+            {
+                "name": "Air Cutter",
+                "type": "Flying",
+                "damage": 30
+            },
+            {
+                "name": "Twister",
+                "type": "Dragon",
+                "damage": 25
+            }
+        ],
+        "weight": {
+            "minimum": "26.25kg",
+            "maximum": "33.75kg"
+        },
+        "height": {
+            "minimum": "0.96m",
+            "maximum": "1.24m"
+        },
+        "buddy_distance": "1km (flying)",
+        "base_stamina": "126",
+        "base_attack": "117",
+        "base_defense": "108",
+        "base_flee_rate": "9",
+        "previous_evolution": [
+            {
+                "id": 16,
+                "name": "Pidgey"
+            },
+            {
+                "id": 17,
                 "name": "Pidgeot"
             }
         ],
+        "next_evolution_req": {
+            "amount": 50,
+            "name": "Pidgey candies"
+        },
         "max_cp": 1096,
         "max_hp": 1223
     },
@@ -2755,7 +2830,7 @@
         ],
         "special_attacks": [
             {
-                "name": "fire Blast",
+                "name": "Fire Blast",
                 "type": "Fire",
                 "damage": 100
             },
@@ -4323,7 +4398,7 @@
                 "damage": 6
             },
             {
-                "name": "fire Fang",
+                "name": "Fire Fang",
                 "type": "Fire",
                 "damage": 10
             }
@@ -4335,7 +4410,7 @@
                 "damage": 35
             },
             {
-                "name": "fire Blast",
+                "name": "Fire Blast",
                 "type": "Fire",
                 "damage": 100
             },
@@ -5741,7 +5816,7 @@
         ],
         "special_attacks": [
             {
-                "name": "fire Blast",
+                "name": "Fire Blast",
                 "type": "Fire",
                 "damage": 100
             },
@@ -5822,7 +5897,7 @@
                 "damage": 50
             },
             {
-                "name": "fire Blast",
+                "name": "Fire Blast",
                 "type": "Fire",
                 "damage": 100
             },
@@ -7131,7 +7206,7 @@
         "next_evolution": [
             {
                 "id": 208,
-                "name": "steelix"
+                "name": "Steelix"
             }
         ],
         "max_cp": 745,
@@ -7958,7 +8033,7 @@
                 "damage": 30
             },
             {
-                "name": "fire Punch",
+                "name": "Fire Punch",
                 "type": "Fire",
                 "damage": 40
             },
@@ -9286,12 +9361,12 @@
         ],
         "special_attacks": [
             {
-                "name": "fire Blast",
+                "name": "Fire Blast",
                 "type": "Fire",
                 "damage": 100
             },
             {
-                "name": "fire Punch",
+                "name": "Fire Punch",
                 "type": "Fire",
                 "damage": 40
             },
@@ -9921,7 +9996,7 @@
         ],
         "special_attacks": [
             {
-                "name": "fire Blast",
+                "name": "Fire Blast",
                 "type": "Fire",
                 "damage": 100
             },
@@ -10541,7 +10616,7 @@
         ],
         "special_attacks": [
             {
-                "name": "fire Blast",
+                "name": "Fire Blast",
                 "type": "Fire",
                 "damage": 100
             },
@@ -10905,7 +10980,7 @@
                 "damage": 100
             },
             {
-                "name": "fire Blast",
+                "name": "Fire Blast",
                 "type": "Fire",
                 "damage": 100
             },
@@ -14191,9 +14266,9 @@
     },
     {
         "id": "208",
-        "name": "steelix",
+        "name": "Steelix",
         "generation": "Generation II",
-        "description": "steelix lives even further underground than Onix. This Pokémon is known to dig toward the earth's core. There are records of this Pokémon reaching a depth of over six-tenths of a mile underground.",
+        "description": "Steelix lives even further underground than Onix. This Pokémon is known to dig toward the earth's core. There are records of this Pokémon reaching a depth of over six-tenths of a mile underground.",
         "types": [
             "Steel",
             "Ground"
@@ -15952,7 +16027,7 @@
                 "damage": 30
             },
             {
-                "name": "fire Punch",
+                "name": "Fire Punch",
                 "type": "Fire",
                 "damage": 40
             },
