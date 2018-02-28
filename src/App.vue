@@ -48,8 +48,8 @@ body {
   display: none !important;
 }
 
-.icon-play3:before {
-  content: "\EA26";
+.icon-play3::before {
+  content: "\EA26" !important;
 }
 
 </style>
