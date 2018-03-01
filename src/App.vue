@@ -9,10 +9,10 @@
 // JavaScript
 // ============================================================================
 <script>
-import Pokedex from './components/Pokedex'
+import Pokedex from "./components/Pokedex"
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     Pokedex
   }
@@ -22,16 +22,16 @@ export default {
 // CSS
 // ============================================================================
 <style>
-@import '~bootstrap/dist/css/bootstrap.css';
-@import '~bootstrap-vue/dist/bootstrap-vue.css';
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap-vue/dist/bootstrap-vue.css";
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
 body {
   background-color: #D93E39;
 }
 
 #app {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 13px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
