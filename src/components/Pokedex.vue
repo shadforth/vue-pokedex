@@ -34,8 +34,8 @@ export default {
     }
   },
   components: {
-    "information-panel": InformationPanel,
-    "search-panel": SearchPanel,
+    InformationPanel,
+    SearchPanel,
   }
 }
 </script>

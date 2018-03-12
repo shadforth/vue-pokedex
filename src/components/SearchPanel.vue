@@ -55,7 +55,7 @@ export default {
         if (pokeid.length != 3) {
           pokeid = String(pokeid).padStart(3, "0");
         }
-        this.pokemon = json[Number.parseInt(pokeid) - 1];
+        this.pokemon = json[parseInt(pokeid) - 1];
         EventBus.$emit("getPokemon", this.pokemon);
       }
     }
