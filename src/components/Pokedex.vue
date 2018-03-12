@@ -43,7 +43,6 @@ export default {
 // CSS
 // ============================================================================
 <style lang="scss" scoped>
-
 $maincolor: #D93E39;
 
 /* Fonts */
@@ -81,5 +80,4 @@ h4 {
       margin: 0 0 15px 0;
     }
 }
-
 </style>

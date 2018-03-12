@@ -52,4 +52,16 @@ body {
   content: "\EA26" !important;
 }
 
+@media only screen
+  and (max-width: 500px) {
+    #app {
+      margin: 10px 2px;
+    }
+    .col {
+      padding: 0;
+    }
+    .table th, .table td {
+      padding: 0.35rem;
+    }
+}
 </style>
