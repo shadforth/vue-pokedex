@@ -22,14 +22,14 @@
 // JavaScript
 // ============================================================================
 <script>
-import json from "../json/data.json";
-import EventBus from "../event-bus";
+import json from '../json/data.json';
+import EventBus from '../event-bus';
 
 export default {
-  name: "SearchPanel",
+  name: 'SearchPanel',
   data () {
     return {
-      title: "Search Panel",
+      title: 'Search Panel',
       json: json,
       list: [],
       pokemon: {
@@ -39,11 +39,11 @@ export default {
         special_attacks: {}
       },
       fields: [
-        { key: "id",    sortable: true  },
-        { key: "name",  sortable: true  },
-        { key: "types", sortable: true  }
+        { key: 'id',    sortable: true  },
+        { key: 'name',  sortable: true  },
+        { key: 'types', sortable: true  }
       ],
-      sortBy: "id",
+      sortBy: 'id',
       sortDesc: false,
       filter: null,
     }
@@ -53,10 +53,10 @@ export default {
       if (data != null) {
         let pokeid = data.id;
         if (pokeid.length != 3) {
-          pokeid = String(pokeid).padStart(3, "0");
+          pokeid = String(pokeid).padStart(3, '0');
         }
         this.pokemon = json[parseInt(pokeid) - 1];
-        EventBus.$emit("getPokemon", this.pokemon);
+        EventBus.$emit('getPokemon', this.pokemon);
       }
     }
   },
@@ -65,7 +65,7 @@ export default {
       let object = {};
       object.id = json[i].id;
       object.name = json[i].name;
-      object.types = json[i].types.join("/");
+      object.types = json[i].types.join('/');
       this.list.push(object);
     }
     this.getPokemon(json[0]);
@@ -76,9 +76,11 @@ export default {
 // CSS
 // ============================================================================
 <style lang="scss" scoped>
+@import '../assets/css/colours';
 
-$maincolor: #D93E39;
-$white: #FFFFFF;
+.panel {
+  padding: 50px 50px 0 50px;
+}
 
 /* Search table */
 #table-overflow {
@@ -86,10 +88,9 @@ $white: #FFFFFF;
 }
 
 #table-container {
-  height: 752px;
-  border: 2px solid $maincolor;
-  border-top: none;
-  border-radius: 0.35rem;
+  height: 80vh;
+  width: 100%;
+  border: none;
   overflow: auto;
   background: $white;
 }
@@ -106,8 +107,17 @@ $white: #FFFFFF;
 
 /* Search bar */
 #search-bar {
-  margin: -2px 0 10px 0;
-  border: 2px solid $maincolor;
+  width: 100%;
+  margin: -2px 0 20px 0;
+  border: none;
+  border-radius: 0;
+  padding: 20px;
+  background: $red;
 }
 
+#search-bar,
+#search-bar:focus,
+#search-bar::placeholder {
+  color: $white;
+}
 </style>

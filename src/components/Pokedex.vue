@@ -2,12 +2,7 @@
 // ============================================================================
 <template>
   <b-container fluid>
-    <div class="col-md-12">
-      <b-row>
-        <b-col>
-          <h2>{{ title }}</h2>
-        </b-col>
-      </b-row>
+    <div id="pokedex-container">
       <b-row>
         <b-col>
           <information-panel/>
@@ -23,15 +18,13 @@
 // JavaScript
 // ============================================================================
 <script>
-import InformationPanel from "./InformationPanel";
-import SearchPanel from "./SearchPanel";
+import InformationPanel from './InformationPanel';
+import SearchPanel from './SearchPanel';
 
 export default {
-  name: "Pokedex",
+  name: 'Pokedex',
   data () {
-    return {
-      title: "Pokédex"
-    }
+    return { }
   },
   components: {
     InformationPanel,
@@ -43,32 +36,18 @@ export default {
 // CSS
 // ============================================================================
 <style lang="scss" scoped>
-$maincolor: #D93E39;
+@import '../assets/css/colours';
 
 /* Fonts */
 h2 {
   font-size: 14px;
   font-weight: bold;
-  color: lighten($maincolor, 40%);
+  color: $white;
 }
 
 h4 {
   font-size: 14px;
   font-weight: bold;
-}
-
-/* Responsive */
-@media only screen 
-  and (max-width: 1024px) {
-    #description-container {
-      padding: 5px 0 10px 0;
-      margin: 5px 0;
-    }
-    #pokemon-sprite {
-      display: block;
-      float: left;
-      padding: 5px;
-    }
 }
 
 @media only screen 

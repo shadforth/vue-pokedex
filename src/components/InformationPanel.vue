@@ -17,7 +17,6 @@
 
       <!-- Base statistics -->
       <div id="base-stats-container">
-        <h4 id="base-stats-title">Base statistics</h4>
         <table class="table responsive">
           <tr>
             <td><strong>Height</strong><br>{{ pokemon.height.maximum }}</td>
@@ -43,7 +42,23 @@
             <td>{{ attack.damage }} damage</td>
             <td></td>
             <td></td>
-            <td><div class="type-box type-box-sml" v-bind:class="attack.type.toLowerCase()">{{ attack.type }}</div></td>
+            <td>
+              <div class="type-box type-box-sml" v-bind:class="attack.type.toLowerCase()">
+                {{ attack.type }}
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Weaknesses -->
+      <div id="weaknesses">
+        <h4 id="weaknesses-title">Weaknesses</h4>
+        <table class="table responsive">
+          <tr>
+            <td>
+              <div class="type-box" v-for="weakness in pokemon.weaknesses" :key="weakness" v-bind:class="weakness.toLowerCase()">{{ weakness }}</div>
+            </td>
           </tr>
         </table>
       </div>
@@ -74,18 +89,18 @@
 // JavaScript
 // ============================================================================
 <script>
-import json from "../json/data.json";
-import VueAudio from "vue-audio";
-import EventBus from "../event-bus";
+import json from '../json/data.json';
+import VueAudio from 'vue-audio';
+import EventBus from '../event-bus';
 
 export default {
-  name: "InformationPanel",
+  name: 'InformationPanel',
   data () {
     return {
-      title: "Information Panel",
+      title: 'Information Panel',
       json: json,
       pokemon: {
-        id: "",
+        id: '',
         weight: {},
         height: {},
         fast_attacks: {},
@@ -94,27 +109,27 @@ export default {
     }
   },
   components: {
-    "vue-audio": VueAudio
+    'vue-audio': VueAudio
   },
   methods: {
     getSprite: function(id) {
-      return require("../assets/sprites/" + String(id).padStart(3, "0") + ".png");
+      return require('../assets/sprites/' + String(id).padStart(3, '0') + '.png');
     },
     getAudio: function(id) {
-      return require("../assets/audio/" + id + ".mp3");
+      return require('../assets/audio/' + id + '.mp3');
     },
     getPokemon: function(data) {
       if (data != null) {
         let pokeid = data.id;
         if (pokeid.length != 3) {
-          pokeid = String(pokeid).padStart(3, "0");
+          pokeid = String(pokeid).padStart(3, '0');
         }
         this.pokemon = json[Number.parseInt(pokeid) - 1];
       }
     }
   },
   created() {
-    EventBus.$on("getPokemon", data => this.pokemon = data);
+    EventBus.$on('getPokemon', data => this.pokemon = data);
   }
 }
 </script>
@@ -122,25 +137,31 @@ export default {
 // CSS
 // ============================================================================
 <style lang="scss" scoped>
-
-$maincolor: #D93E39;
-$white: #FFFFFF;
+@import '../assets/css/colours';
 
 /* Pokemon */
 #pokemon-info-panel {
-  min-height: 680px;
+  height: 100vh;
+  width: 100%;
   margin: 0 0 5px 0;
-  border-radius: 0.25rem;
-  padding: 15px 15px 0 15px;
+  border-right: 1px solid #EEE;
+  padding: 50px;
   background-color: $white;
 }
 
 #pokemon-info-panel h3 {
-  margin-bottom: 5px;
+  margin: -5px 0 0 -2px;
+  font-size: 36px;
+}
+
+#pokemon-info-panel h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 #pokemon-id {
-  color: #AAAAAA;
+  font-size: 16px;
+  color: $lightgrey;
 }
 
 #pokemon-sprite {
@@ -152,45 +173,58 @@ $white: #FFFFFF;
 .pokemon-evol-sprite-container {
   float: left;
   display: block;
-  margin: 5px;
-  border-radius: 0.25rem;
-  padding: 0 10px;
-  background-color: #F0F0F0;
+  margin: 10px 0;
+  padding: 0 20px 0 0;
   text-align: center;
   cursor: pointer;
-}
-
-.pokemon-evol-sprite-container:hover {
-  background-color: #F3F3F3;
 }
 
 .pokemon-evol-sprite-container p {
   text-align: center;
   margin-bottom: 5px;
-  color: #777777;
+  color: $grey;
 }
 
-#spec-attack-container, #evol-container {
+.pokemon-evol-sprite-container:hover p {
+  color: lighten($grey, 20%);
+}
+
+
+#spec-attack-container,
+#evol-container {
   margin: 15px 0;
+}
+
+/* Responsive */
+@media only screen 
+  and (max-width: 1024px) {
+    #description-container {
+      padding: 5px 0 10px 0;
+      margin: 5px 0;
+    }
+    #pokemon-sprite {
+      display: block;
+      float: left;
+      padding: 5px;
+    }
 }
 
 /* Pokemon types */
 .type-box {
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    border: 1px solid transparent;
-    padding: 0.175rem 0.5rem 0.160rem 0.5rem;
-    margin: 7px 7.5px 7px 0;
-    font-size: 0.7rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 1.5;
-    border-radius: 0.25rem;
-    color: #FFFFFF;
-  }
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: 0.175rem 0.5rem 0.160rem 0.5rem;
+  margin: 3px 7.5px 3px 0;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: $white;
+}
 
 .type-box-sml {
   margin: 0;
