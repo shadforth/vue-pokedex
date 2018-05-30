@@ -29,6 +29,7 @@ export default {
 
 body {
   border-top: 4px solid $red;
+  overflow: hidden;
 }
 
 #app {
