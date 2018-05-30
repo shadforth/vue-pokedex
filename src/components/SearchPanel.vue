@@ -108,16 +108,27 @@ export default {
 /* Search bar */
 #search-bar {
   width: 100%;
-  margin: -2px 0 20px 0;
+  margin: 0 0 20px 0;
   border: none;
+  border-bottom: 3px solid lighten($lightgrey, 28%);
   border-radius: 0;
   padding: 20px;
-  background: $red;
+  background: lighten($lightgrey, 28%);
+  transition: border 0.2s linear;
 }
 
 #search-bar,
 #search-bar:focus,
 #search-bar::placeholder {
-  color: $white;
+  color: $grey;
 }
+
+#search-bar:focus {
+  border-bottom: 3px solid lighten($lightgrey, 15%);
+}
+
+.form-control {
+  box-shadow: none;
+}
+
 </style>
