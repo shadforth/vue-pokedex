@@ -69,11 +69,11 @@
         <table class="table responsive">
           <tr>
             <td>
-                <div class="pokemon-evol-sprite-container" v-for="evolution in pokemon.previous_evolution" :key="evolution.id" v-on:click="getPokemon(evolution)">
+                <div id="previous-evolution" class="pokemon-evol-sprite-container" v-for="evolution in pokemon.previous_evolution" :key="evolution.id" v-on:click="getPokemon(evolution)">
                   <img class="pokemon-evol-sprite" :src="getSprite(evolution.id)">
                   <p>{{ evolution.name }}</p>
                 </div>
-                <div class="pokemon-evol-sprite-container" v-for="evolution in pokemon.next_evolution" :key="evolution.id" v-on:click="getPokemon(evolution)">
+                <div id="next-evolution" class="pokemon-evol-sprite-container" v-for="evolution in pokemon.next_evolution" :key="evolution.id" v-on:click="getPokemon(evolution)">
                   <img class="pokemon-evol-sprite" :src="getSprite(evolution.id)">
                   <p>{{ evolution.name }}</p>
                 </div>
