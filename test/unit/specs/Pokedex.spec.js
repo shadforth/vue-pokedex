@@ -16,7 +16,7 @@ describe('Pokedex.vue', () => {
 
   it('should set correct default data', () => {
     const defaultData = Pokedex.data();
-    expect (typeof Pokedex.data).to.equal('function');
+    expect(typeof Pokedex.data).to.equal('function');
   });
 
   afterEach(() => {
