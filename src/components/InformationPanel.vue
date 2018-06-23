@@ -112,12 +112,8 @@ export default {
     'vue-audio': VueAudio
   },
   methods: {
-    getSprite: function(id) {
-      return require('../assets/sprites/' + String(id).padStart(3, '0') + '.png');
-    },
-    getAudio: function(id) {
-      return require('../assets/audio/' + id + '.mp3');
-    },
+    getSprite: (id) => require('../assets/sprites/' + String(id).padStart(3, '0') + '.png'),
+    getAudio:  (id) => require('../assets/audio/' + id + '.mp3'),
     getPokemon: function(data) {
       if (data != null) {
         let pokeid = data.id;

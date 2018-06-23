@@ -49,14 +49,14 @@ export default {
     }
   },
   methods: {
-    getPokemon: function(data) {
+    getPokemon: (data) => {
       if (data != null) {
         let pokeid = data.id;
         if (pokeid.length != 3) {
           pokeid = String(pokeid).padStart(3, '0');
         }
-        this.pokemon = json[parseInt(pokeid) - 1];
-        EventBus.$emit('getPokemon', this.pokemon);
+        data.pokemon = json[parseInt(pokeid) - 1];
+        EventBus.$emit('getPokemon', data.pokemon);
       }
     }
   },
