@@ -1,6 +1,6 @@
 # Vue Pokédex [![Maintainability](https://api.codeclimate.com/v1/badges/80d4baff75613a0fd530/maintainability)](https://codeclimate.com/github/shadforth/pokedex-vue/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/80d4baff75613a0fd530/test_coverage)](https://codeclimate.com/github/shadforth/pokedex-vue/test_coverage) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/shadforth/pokedex-vue/issues)
 
-A Pokédex made for fun in Vue.js. View live at: https://jacqui.sh/pokedex-vue/
+A Pokédex made for fun in Vue.js. View live at: https://jacqui.sh/vue-pokedex
 
 The Pokédex includes the first 251 Pokémon, with:
 - Descriptions and types
