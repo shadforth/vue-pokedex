@@ -10518,8 +10518,7 @@
     "base_attack": "192",
     "base_defense": "249",
     "base_flee_rate": "10",
-    "pokemon_class": "This is a LEGENDARY Pokémon.",
-    "legendary": "Pokémon Class",
+    "pokemon_class": "This is a legendary Pokémon.",
     "max_cp": 2776,
     "max_hp": 2978
   },
@@ -10580,8 +10579,7 @@
     "base_attack": "253",
     "base_defense": "188",
     "base_flee_rate": "10",
-    "pokemon_class": "This is a LEGENDARY Pokémon.",
-    "legendary": "Pokémon Class",
+    "pokemon_class": "This is a legendary Pokémon.",
     "max_cp": 2907,
     "max_hp": 3114
   },
@@ -10644,8 +10642,7 @@
     "base_attack": "251",
     "base_defense": "184",
     "base_flee_rate": "10",
-    "pokemon_class": "This is a LEGENDARY Pokémon.",
-    "legendary": "Pokémon Class",
+    "pokemon_class": "This is a legendary Pokémon.",
     "max_cp": 3028,
     "max_hp": 3240
   },
@@ -10934,8 +10931,7 @@
     "base_attack": "330",
     "base_defense": "200",
     "base_flee_rate": "10",
-    "pokemon_class": "This is a LEGENDARY Pokémon.",
-    "legendary": "Pokémon Class",
+    "pokemon_class": "This is a legendary Pokémon.",
     "max_cp": 3904,
     "max_hp": 4144
   },
@@ -16194,8 +16190,7 @@
     "base_attack": "241",
     "base_defense": "210",
     "base_flee_rate": "5",
-    "pokemon_class": "This is a LEGENDARY Pokémon.",
-    "legendary": "Pokémon Class"
+    "pokemon_class": "This is a legendary Pokémon."
   },
   {
     "id": "244",
@@ -16245,8 +16240,7 @@
     "base_attack": "235",
     "base_defense": "176",
     "base_flee_rate": "5",
-    "pokemon_class": "This is a LEGENDARY Pokémon.",
-    "legendary": "Pokémon Class"
+    "pokemon_class": "This is a legendary Pokémon."
   },
   {
     "id": "245",
@@ -16293,35 +16287,55 @@
     "base_attack": "180",
     "base_defense": "235",
     "base_flee_rate": "5",
-    "pokemon_class": "This is a LEGENDARY Pokémon.",
-    "legendary": "Pokémon Class"
+    "pokemon_class": "This is a legendary Pokémon."
   },
   {
     "id": "246",
     "name": "Larvitar",
     "generation": "Generation II",
+    "description": "It feeds on soil. After it has eaten a large mountain, it will fall asleep so it can grow. Larvitar is born deep under the ground. To come up to the surface, this Pokémon must eat its way through the soil above.",
     "types": [
       "Rock",
       "Ground"
-    ]
+    ],
+    "resistant": [],
+    "weaknesses": [],
+    "fast_attacks": [],
+    "special_attacks": [],
+    "weight": {},
+    "height": {}
   },
   {
     "id": "247",
     "name": "Pupitar",
     "generation": "Generation II",
+    "description": "Pupitar creates a gas inside its body that it compresses and forcefully ejects to propel itself like a jet. The body is very durable - it avoids damage even if it hits solid steel. This troublesome Pokémon can't wait to evolve, so it relieves its stress by wildly propelling itself around using compressed gas.",
     "types": [
       "Rock",
       "Ground"
-    ]
+    ],
+    "resistant": [],
+    "weaknesses": [],
+    "fast_attacks": [],
+    "special_attacks": [],
+    "weight": {},
+    "height": {}
   },
   {
     "id": "248",
     "name": "Tyranitar",
     "generation": "Generation II",
+    "description": "Tyranitar is so overwhelmingly powerful, it can bring down a whole mountain to make its nest. This Pokémon wanders about in mountains seeking new opponents to fight.",
     "types": [
       "Rock",
       "dark"
-    ]
+    ],
+    "resistant": [],
+    "weaknesses": [],
+    "fast_attacks": [],
+    "special_attacks": [],
+    "weight": {},
+    "height": {}
   },
   {
     "id": "249",
@@ -16372,14 +16386,13 @@
     "base_attack": "193",
     "base_defense": "323",
     "base_flee_rate": "5",
-    "pokemon_class": "This is a legendary Pokémon.",
-    "legendary": "Pokémon Class"
+    "pokemon_class": "This is a legendary Pokémon."
   },
   {
     "id": "250",
     "name": "Ho-Oh",
     "generation": "Generation II",
-    "description": "It is often considered to be closely related to Lugia as a duo, even sometimes as its polar opposite. Silver represents Lugia as \"guardian of the seas\", and Gold represents Ho-Oh as \"guardian of the skies\". Ho-Oh is also the trio master of the Legendary beasts.",
+    "description": "It is often considered to be closely related to Lugia as a duo, even sometimes as its polar opposite. Silver represents Lugia as \"guardian of the seas\", and Gold represents Ho-Oh as \"guardian of the skies\". Ho-Oh is also the trio master of the legendary beasts.",
     "types": [
       "Fire",
       "Flying"
