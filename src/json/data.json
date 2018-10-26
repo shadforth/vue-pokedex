@@ -1990,12 +1990,12 @@
         "damage": 70
       },
       {
-        "name": "rock Slide",
+        "name": "Rock Slide",
         "type": "Rock",
         "damage": 50
       },
       {
-        "name": "rock Tomb",
+        "name": "Rock Tomb",
         "type": "Rock",
         "damage": 30
       }
@@ -2068,7 +2068,7 @@
         "damage": 100
       },
       {
-        "name": "rock Tomb",
+        "name": "Rock Tomb",
         "type": "Rock",
         "damage": 30
       }
@@ -3776,7 +3776,7 @@
         "damage": 30
       },
       {
-        "name": "rock Tomb",
+        "name": "Rock Tomb",
         "type": "Rock",
         "damage": 30
       }
@@ -5575,12 +5575,12 @@
         "damage": 70
       },
       {
-        "name": "rock Slide",
+        "name": "Rock Slide",
         "type": "Rock",
         "damage": 50
       },
       {
-        "name": "rock Tomb",
+        "name": "Rock Tomb",
         "type": "Rock",
         "damage": 30
       }
@@ -5659,7 +5659,7 @@
         "damage": 70
       },
       {
-        "name": "rock Slide",
+        "name": "Rock Slide",
         "type": "Rock",
         "damage": 50
       },
@@ -7180,7 +7180,7 @@
         "damage": 30
       },
       {
-        "name": "rock Slide",
+        "name": "Rock Slide",
         "type": "Rock",
         "damage": 50
       },
@@ -7810,7 +7810,7 @@
         "damage": 15
       },
       {
-        "name": "rock Smash",
+        "name": "Rock Smash",
         "type": "Fighting",
         "damage": 15
       }
@@ -7883,7 +7883,7 @@
         "damage": 15
       },
       {
-        "name": "rock Smash",
+        "name": "Rock Smash",
         "type": "Fighting",
         "damage": 15
       }
@@ -7952,7 +7952,7 @@
         "damage": 5
       },
       {
-        "name": "rock Smash",
+        "name": "Rock Smash",
         "type": "Fighting",
         "damage": 15
       }
@@ -8021,7 +8021,7 @@
         "damage": 10
       },
       {
-        "name": "rock Smash",
+        "name": "Rock Smash",
         "type": "Fighting",
         "damage": 15
       }
@@ -8295,7 +8295,7 @@
         "damage": 15
       },
       {
-        "name": "rock Smash",
+        "name": "Rock Smash",
         "type": "Fighting",
         "damage": 15
       }
@@ -8375,7 +8375,7 @@
         "damage": 15
       },
       {
-        "name": "rock Smash",
+        "name": "Rock Smash",
         "type": "Fighting",
         "damage": 15
       }
@@ -9423,7 +9423,7 @@
         "damage": 3
       },
       {
-        "name": "rock Smash",
+        "name": "Rock Smash",
         "type": "Fighting",
         "damage": 15
       }
@@ -10144,7 +10144,7 @@
         "damage": 25
       },
       {
-        "name": "rock Tomb",
+        "name": "Rock Tomb",
         "type": "Rock",
         "damage": 30
       }
@@ -10230,7 +10230,7 @@
         "damage": 25
       },
       {
-        "name": "rock Tomb",
+        "name": "Rock Tomb",
         "type": "Rock",
         "damage": 30
       }
@@ -15734,7 +15734,7 @@
         "damage": 5
       },
       {
-        "name": "rock Smash",
+        "name": "Rock Smash",
         "type": "Fighting",
         "damage": 15
       }
@@ -16298,12 +16298,58 @@
       "Rock",
       "Ground"
     ],
-    "resistant": [],
-    "weaknesses": [],
-    "fast_attacks": [],
-    "special_attacks": [],
-    "weight": {},
-    "height": {}
+    "resistant": [
+      "Normal",
+      "Flying",
+      "Poison",
+      "Rock",
+      "Fire"
+    ],
+    "weaknesses": [
+      "Fighting",
+      "Ground",
+      "Steel",
+      "Water",
+      "Grass",
+      "Ice"
+    ],
+    "fast_attacks": [
+      {
+        "name": "Bite",
+        "type": "Dark",
+        "damage": 6
+      },
+      {
+        "name": "Rock Smash",
+        "type": "Fighting",
+        "damage": 15
+      }
+    ],
+    "special_attacks": [
+      {
+        "name": "Stomp",
+        "type": "Normal",
+        "damage": 30
+      },
+      {
+        "name": "Ancient Power",
+        "type": "Rock",
+        "damage": 35
+      },
+      {
+        "name": "Crunch",
+        "type": "Dark",
+        "damage": 40
+      }
+    ],
+    "weight": {
+      "minimum": "72.0kg",
+      "maximum": "72.0kg"
+    },
+    "height": {
+      "minimum": "0.6m",
+      "maximum": "0.6m"
+    }
   },
   {
     "id": "247",
