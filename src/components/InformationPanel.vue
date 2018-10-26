@@ -1,3 +1,13 @@
+<!--
+===============================================================================
+InformationPanel.vue
+Left-hand side panel containing information about a selected Pokemon
+
+Last modified by: Jacqui Shadforth <jacqueline.shadforth@gmail.com>
+Date last modified: 26/10/2018
+===============================================================================
+-->
+
 // HTML
 // ============================================================================
 <template>
@@ -89,9 +99,9 @@
 // JavaScript
 // ============================================================================
 <script>
-import json from '../json/data.json';
-import VueAudio from 'vue-audio';
-import EventBus from '../event-bus';
+import json from '../json/data.json'
+import VueAudio from 'vue-audio'
+import EventBus from '../event-bus'
 
 export default {
   name: 'InformationPanel',
@@ -112,20 +122,29 @@ export default {
     'vue-audio': VueAudio
   },
   methods: {
+    /**
+     * Retrieve a Pokemon sprite.
+     * @param {String} id - The ID of the Pokemon.
+     */
     getSprite: (id) => require('../assets/sprites/' + String(id).padStart(3, '0') + '.png'),
-    getAudio:  (id) => require('../assets/audio/' + id + '.mp3'),
+    /**
+     * Retrieve a Pokemon audio file.
+     * @param {String} id - The ID of the Pokemon.
+     */
+    getAudio: (id) => require('../assets/audio/' + id + '.mp3'),
+    /** Retrieve the Pokemon JSON object from data.json. */
     getPokemon: function(data) {
       if (data != null) {
-        let pokeid = data.id;
+        let pokeid = data.id
         if (pokeid.length != 3) {
-          pokeid = String(pokeid).padStart(3, '0');
+          pokeid = String(pokeid).padStart(3, '0')
         }
-        this.pokemon = json[Number.parseInt(pokeid) - 1];
+        this.pokemon = json[Number.parseInt(pokeid) - 1]
       }
     }
   },
   created() {
-    EventBus.$on('getPokemon', data => this.pokemon = data);
+    EventBus.$on('getPokemon', data => this.pokemon = data)
   }
 }
 </script>
