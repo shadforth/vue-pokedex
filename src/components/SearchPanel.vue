@@ -1,3 +1,13 @@
+<!--
+===============================================================================
+SearchPanel.vue
+Right-hand side panel containing a search bar and Pokemon list.
+
+Last modified by: Jacqui Shadforth <jacqueline.shadforth@gmail.com>
+Date last modified: 26/10/2018
+===============================================================================
+-->
+
 // HTML
 // ============================================================================
 <template>
@@ -22,8 +32,8 @@
 // JavaScript
 // ============================================================================
 <script>
-import json from '../json/data.json';
-import EventBus from '../event-bus';
+import json from '../json/data.json'
+import EventBus from '../event-bus'
 
 export default {
   name: 'SearchPanel',
@@ -39,9 +49,9 @@ export default {
         special_attacks: {}
       },
       fields: [
-        { key: 'id',    sortable: true  },
-        { key: 'name',  sortable: true  },
-        { key: 'types', sortable: true  }
+        { key: 'id', sortable: true },
+        { key: 'name', sortable: true },
+        { key: 'types', sortable: true }
       ],
       sortBy: 'id',
       sortDesc: false,
@@ -49,26 +59,27 @@ export default {
     }
   },
   methods: {
+    /** Retrieve the Pokemon JSON object from data.json. */
     getPokemon: (data) => {
       if (data != null) {
-        let pokeid = data.id;
+        let pokeid = data.id
         if (pokeid.length != 3) {
-          pokeid = String(pokeid).padStart(3, '0');
+          pokeid = String(pokeid).padStart(3, '0')
         }
-        data.pokemon = json[parseInt(pokeid) - 1];
-        EventBus.$emit('getPokemon', data.pokemon);
+        data.pokemon = json[parseInt(pokeid) - 1]
+        EventBus.$emit('getPokemon', data.pokemon)
       }
     }
   },
   mounted: function() {
     for (let i in json) {
-      let object = {};
-      object.id = json[i].id;
-      object.name = json[i].name;
-      object.types = json[i].types.join('/');
-      this.list.push(object);
+      let object = {}
+      object.id = json[i].id
+      object.name = json[i].name
+      object.types = json[i].types.join('/')
+      this.list.push(object)
     }
-    this.getPokemon(json[0]);
+    this.getPokemon(json[0])
   }
 }
 </script>

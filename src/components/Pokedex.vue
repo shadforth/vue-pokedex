@@ -1,3 +1,13 @@
+<!--
+===============================================================================
+Pokemon.vue
+Parent container holding information and search panels.
+
+Last modified by: Jacqui Shadforth <jacqueline.shadforth@gmail.com>
+Date last modified: 26/10/2018
+===============================================================================
+-->
+
 // HTML
 // ============================================================================
 <template>
@@ -18,8 +28,8 @@
 // JavaScript
 // ============================================================================
 <script>
-import InformationPanel from './InformationPanel';
-import SearchPanel from './SearchPanel';
+import InformationPanel from './InformationPanel'
+import SearchPanel from './SearchPanel'
 
 export default {
   name: 'Pokedex',
