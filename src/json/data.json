@@ -16332,19 +16332,19 @@
         "damage": 30
       },
       {
-        "name": "Ancient Power",
-        "type": "Rock",
-        "damage": 35
-      },
-      {
         "name": "Crunch",
         "type": "Dark",
         "damage": 40
+      },
+      {
+        "name": "Ancient Power",
+        "type": "Rock",
+        "damage": 35
       }
     ],
     "weight": {
-      "minimum": "72.0kg",
-      "maximum": "72.0kg"
+      "minimum": "72kg",
+      "maximum": "72kg"
     },
     "height": {
       "minimum": "0.6m",
@@ -16360,12 +16360,58 @@
       "Rock",
       "Ground"
     ],
-    "resistant": [],
-    "weaknesses": [],
-    "fast_attacks": [],
-    "special_attacks": [],
-    "weight": {},
-    "height": {}
+    "resistant": [
+      "Normal",
+      "Flying",
+      "Poison",
+      "Rock",
+      "Fire"
+    ],
+    "weaknesses": [
+      "Fighting",
+      "Ground",
+      "Steel",
+      "Water",
+      "Grass",
+      "Ice"
+    ],
+    "fast_attacks": [
+      {
+        "name": "Bite",
+        "type": "Dark",
+        "damage": 6
+      },
+      {
+        "name": "Rock Smash",
+        "type": "Fighting",
+        "damage": 15
+      }
+    ],
+    "special_attacks": [
+      {
+        "name": "Dig",
+        "type": "Ground",
+        "damage": 70
+      },
+      {
+        "name": "Crunch",
+        "type": "Dark",
+        "damage": 40
+      },
+      {
+        "name": "Ancient Power",
+        "type": "Rock",
+        "damage": 35
+      }
+    ],
+    "weight": {
+      "minimum": "152kg",
+      "maximum": "152kg"
+    },
+    "height": {
+      "minimum": "1.2m",
+      "maximum": "1.2m"
+    }
   },
   {
     "id": "248",
