@@ -1,4 +1,4 @@
-# Vue Pokédex [![Maintainability](https://api.codeclimate.com/v1/badges/80d4baff75613a0fd530/maintainability)](https://codeclimate.com/github/shadforth/pokedex-vue/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/80d4baff75613a0fd530/test_coverage)](https://codeclimate.com/github/shadforth/pokedex-vue/test_coverage) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/shadforth/pokedex-vue/issues)
+# Vue Pokédex [![Maintainability](https://api.codeclimate.com/v1/badges/fb4793225019f84f2383/maintainability)](https://codeclimate.com/github/shadforth/vue-pokedex/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/fb4793225019f84f2383/test_coverage)](https://codeclimate.com/github/shadforth/vue-pokedex/test_coverage) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/shadforth/vue-pokedex/issues)
 
 A Pokédex made for fun in Vue.js. View live at: https://shadforth.github.io/vue-pokedex
 
@@ -36,7 +36,7 @@ To run the application in its development environment, run `npm run dev`. The de
 
 ## To do
 - [X] Deploy to GitHub Pages
-- [ ] Set up unit tests
+- [X] Set up unit tests
 - [ ] Set up e2e tests
 - [ ] Integrate with Electron
 - [ ] Add the remaining 551 Pokémon
