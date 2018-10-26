@@ -16422,12 +16422,65 @@
       "Rock",
       "dark"
     ],
-    "resistant": [],
-    "weaknesses": [],
-    "fast_attacks": [],
-    "special_attacks": [],
-    "weight": {},
-    "height": {}
+    "resistant": [
+      "Normal",
+      "Flying",
+      "Poison",
+      "Ghost",
+      "Fire",
+      "Dark"
+    ],
+    "weaknesses": [
+      "Fighting",
+      "Ground",
+      "Bug",
+      "Steel",
+      "Water",
+      "Grass",
+      "Fairy"
+    ],
+    "fast_attacks": [
+      {
+        "name": "Bite",
+        "type": "Dark",
+        "damage": 6
+      },
+      {
+        "name": "Iron Tail",
+        "type": "Steel",
+        "damage": 100
+      },
+      {
+        "name": "Smack Down",
+        "type": "Steel",
+        "damage": 50
+      }
+    ],
+    "special_attacks": [
+      {
+        "name": "Fire Blast",
+        "type": "Fire",
+        "damage": 100
+      },
+      {
+        "name": "Crunch",
+        "type": "Dark",
+        "damage": 40
+      },
+      {
+        "name": "Stone Edge",
+        "type": "Rock",
+        "damage": 80
+      }
+    ],
+    "weight": {
+      "minimum": "202kg",
+      "maximum": "255kg"
+    },
+    "height": {
+      "minimum": "2.0m",
+      "maximum": "2.5m"
+    }
   },
   {
     "id": "249",
