@@ -17,21 +17,14 @@ The Pokédex includes the first 251 Pokémon, with:
 To get the development environment up and running, make sure the following software is installed:
 
 * Node.js & npm
-* Vue
 
-To install Node.js & npm, visit the [Node.js downloads page](https://nodejs.org/en/download/) and select the version labelled **LTS**.
+To download Node.js & npm, visit the [Node.js downloads page](https://nodejs.org/en/download/) and select the version labelled **LTS**.
 
-After downloading, `node -v` to check that installation was successful.
+After installing Node.js, run `node -v` in your terminal to verify that it has been installed correctly.
 
-To install Vue, run the following command:
+### Running the app
+Run `npm install` to download project dependencies.
 
-```
-$ npm install vue
-```
-
-After installation, run `vue -V` to verify that Vue was installed successfully. The version should be 2.9.2 or higher.
-
-### Installing
 To run the application in its development environment, run `npm run dev`. The development server should be running on `localhost:8080`.
 
 ## To do
