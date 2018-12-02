@@ -28,7 +28,7 @@ After installing Node.js, run `node -v` in your terminal to verify that it has b
 
 Run `npm install` to download project dependencies.
 
-To run the application in its development environment, run `npm run dev`. The development server should be running on `localhost:8080`.
+To run the application in its development environment, run `npm run serve`. The development server should be running on `localhost:8080`.
 
 ## To do
 
