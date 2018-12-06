@@ -28,14 +28,17 @@ After installing Node.js, run `node -v` in your terminal to verify that it has b
 
 Run `npm install` to download project dependencies.
 
-To run the application in its development environment, run `npm run serve`. The development server should be running on `localhost:8080`.
+To run the application in its development environment,
+
+- **Web app** - `npm run serve`. The development server will be running on `localhost:8080`.
+- **Electron app** - `npm run electron:serve`. The app will launch automatically after a successful build.
 
 ## To do
 
 - [x] Deploy to GitHub Pages
 - [x] Set up unit tests
 - [ ] Set up e2e tests
-- [ ] Integrate with Electron
+- [x] Integrate with Electron
 - [ ] Add the remaining 551 Pokémon
 - [ ] Add strengths and weaknesses
 - [ ] Add evolutionary requirements (i.e. Moon Stone, etc.)
