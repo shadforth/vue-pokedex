@@ -1,6 +1,8 @@
 # Vue Pokédex [![Maintainability](https://api.codeclimate.com/v1/badges/fb4793225019f84f2383/maintainability)](https://codeclimate.com/github/shadforth/vue-pokedex/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/fb4793225019f84f2383/test_coverage)](https://codeclimate.com/github/shadforth/vue-pokedex/test_coverage) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/shadforth/vue-pokedex/issues)
 
-A Pokédex made for fun in Vue.js. View live at: https://shadforth.github.io/vue-pokedex
+A Pokédex made for fun in Vue.js.
+
+View live at: https://shadforth.github.io/vue-pokedex
 
 The Pokédex includes the first 251 Pokémon, with:
 
@@ -16,16 +18,14 @@ The Pokédex includes the first 251 Pokémon, with:
 
 ### Prerequisites
 
-To get the development environment up and running, make sure the following software is installed:
-
 - Node.js &amp; npm
 
 To download Node.js and npm, visit the [Node.js downloads page](https://nodejs.org/en/download/) and select the version labelled **LTS**.
 
-After installing Node.js, run the following command to verify that it has been installed correctly.
+After installing Node.js, run the following command to verify that everything has been installed correctly.
 
 ```bash
-npm -v
+npm -v && node -v
 ```
 
 ### Running the application
