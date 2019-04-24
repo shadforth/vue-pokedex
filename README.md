@@ -18,29 +18,55 @@ The Pokédex includes the first 251 Pokémon, with:
 
 To get the development environment up and running, make sure the following software is installed:
 
-- Node.js & npm
+- Node.js &amp; npm
 
-To download Node.js & npm, visit the [Node.js downloads page](https://nodejs.org/en/download/) and select the version labelled **LTS**.
+To download Node.js and npm, visit the [Node.js downloads page](https://nodejs.org/en/download/) and select the version labelled **LTS**.
 
-After installing Node.js, run `node -v` in your terminal to verify that it has been installed correctly.
+After installing Node.js, run the following command to verify that it has been installed correctly.
 
-### Running the app
+```bash
+npm -v
+```
 
-Run `npm install` to download project dependencies.
+### Running the application
 
-To run the application in its development environment, run `npm run serve`. The development server should be running on `localhost:8080`.
+```bash
+# Download project dependencies
+npm install
+
+# Run the application on localhost:8080
+npm run serve
+```
+
+### Key files and folders
+
+```
+  .
+  ├── docs/              # Compiled application for GitHub Pages
+  ├── public/            # Static assets
+  ├── src/               # Main Vue application files
+  |   ├── assets/        # Audio, sprites, global CSS
+  |   |   └── ...
+  |   ├── components/    # Vue components
+  |   ├── json/
+  |   |   └── data.json  # Scraped Pokédex data
+  |   ├── App.vue
+  |   ├── event-bus.js   # Connector to pass data b/n children
+  |   └── tests/         # Unit tests
+  ├── README.md
+  └── package.json       # Requirements for npm installation
+```
 
 ## To do
 
 - [x] Deploy to GitHub Pages
 - [x] Set up unit tests
 - [ ] Set up e2e tests
-- [ ] Integrate with Electron
 - [ ] Add the remaining 551 Pokémon
 - [ ] Add strengths and weaknesses
 - [ ] Add evolutionary requirements (i.e. Moon Stone, etc.)
 
-## Contribution
+## Contributions
 
 All contributions welcome. 😃
 
