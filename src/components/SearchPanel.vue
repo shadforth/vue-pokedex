@@ -4,7 +4,7 @@ SearchPanel.vue
 Right-hand side panel containing a search bar and Pokemon list.
 
 Last modified by: Jacqui Shadforth <jacqueline.shadforth@gmail.com>
-Date last modified: 26/10/2018
+Date last modified: 24/04/2019
 ===============================================================================
 -->
 
@@ -13,16 +13,22 @@ Date last modified: 26/10/2018
 <template>
   <div class="panel panel-default">
     <div id="table-overflow">
-      <b-form-input id="search-bar" v-model="filter" placeholder="Type to search..." />
+      <b-form-input
+        id="search-bar"
+        v-model="filter"
+        placeholder="Type to search..."
+      />
       <div id="table-container">
-        <b-table hover
-                class="pokedex-table table-borderless"
-                :fields="fields"
-                :items="list"
-                :filter="filter"
-                v-on:row-clicked="getPokemon"
-                :sort-by.sync="sortBy"
-                :sort-desc.sync="sortDesc">
+        <b-table
+          hover
+          class="pokedex-table table-borderless"
+          :fields="fields"
+          :items="list"
+          :filter="filter"
+          v-on:row-clicked="getPokemon"
+          :sort-by.sync="sortBy"
+          :sort-desc.sync="sortDesc"
+        >
         </b-table>
       </div>
     </div>
@@ -32,14 +38,14 @@ Date last modified: 26/10/2018
 // JavaScript
 // ============================================================================
 <script>
-import json from '../json/data.json'
-import EventBus from '../event-bus'
+import json from "../json/data.json";
+import EventBus from "../event-bus";
 
 export default {
-  name: 'SearchPanel',
-  data () {
+  name: "SearchPanel",
+  data() {
     return {
-      title: 'Search Panel',
+      title: "Search Panel",
       json: json,
       list: [],
       pokemon: {
@@ -49,45 +55,46 @@ export default {
         special_attacks: {}
       },
       fields: [
-        { key: 'id', sortable: true },
-        { key: 'name', sortable: true },
-        { key: 'types', sortable: true }
+        { key: "id", sortable: true },
+        { key: "name", sortable: true },
+        { key: "types", sortable: true }
       ],
-      sortBy: 'id',
+      sortBy: "id",
       sortDesc: false,
-      filter: null,
-    }
+      filter: null
+    };
   },
   methods: {
     /** Retrieve the Pokemon JSON object from data.json. */
-    getPokemon: (data) => {
+    getPokemon: data => {
       if (data != null) {
-        let pokeid = data.id
+        let pokeid = data.id;
         if (pokeid.length != 3) {
-          pokeid = String(pokeid).padStart(3, '0')
+          pokeid = String(pokeid).padStart(3, "0");
         }
-        data.pokemon = json[parseInt(pokeid) - 1]
-        EventBus.$emit('getPokemon', data.pokemon)
+        data.pokemon = json[parseInt(pokeid) - 1];
+        EventBus.$emit("getPokemon", data.pokemon);
       }
     }
   },
+  /** Populate search panel with Pokemon. */
   mounted: function() {
     for (let i in json) {
-      let object = {}
-      object.id = json[i].id
-      object.name = json[i].name
-      object.types = json[i].types.join('/')
-      this.list.push(object)
+      let object = {};
+      object.id = json[i].id;
+      object.name = json[i].name;
+      object.types = json[i].types.join("/");
+      this.list.push(object);
     }
-    this.getPokemon(json[0])
+    this.getPokemon(json[0]);
   }
-}
+};
 </script>
 
 // CSS
 // ============================================================================
 <style lang="scss" scoped>
-@import '../assets/css/colours';
+@import "../assets/css/colours";
 
 .panel {
   padding: 50px 50px 0 50px;
@@ -141,5 +148,4 @@ export default {
 .form-control {
   box-shadow: none;
 }
-
 </style>

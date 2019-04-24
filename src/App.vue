@@ -2,21 +2,21 @@
 // ============================================================================
 <template>
   <div id="app">
-    <Pokedex/>
+    <Pokedex />
   </div>
 </template>
 
 // JavaScript
 // ============================================================================
 <script>
-import Pokedex from './components/Pokedex'
+import Pokedex from "./components/Pokedex";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     Pokedex
   }
-}
+};
 </script>
 
 // CSS
@@ -25,7 +25,7 @@ export default {
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~bootstrap-vue/dist/bootstrap-vue.css";
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web");
-@import 'assets/css/colours';
+@import "assets/css/colours";
 
 body {
   border-top: 4px solid $red;
@@ -60,7 +60,8 @@ body {
   .col {
     padding: 0;
   }
-  .table th, .table td {
+  .table th,
+  .table td {
     padding: 0.35rem;
   }
 }

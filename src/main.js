@@ -1,9 +1,9 @@
-import Vue from "vue"
-import App from "./App"
-import BootstrapVue from "bootstrap-vue"
+import Vue from "vue";
+import App from "./App";
+import BootstrapVue from "bootstrap-vue";
 
 Vue.use(BootstrapVue);
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 require("./assets/css/types.scss");
 
