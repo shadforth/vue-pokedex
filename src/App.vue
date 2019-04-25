@@ -40,6 +40,27 @@ body {
   margin: 0;
 }
 
+/* Type box */
+.type-box {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: 0.175rem 0.5rem 0.16rem 0.5rem;
+  margin: 3px 7.5px 3px 0;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: $white;
+}
+
+.type-box-sml {
+  margin: 0;
+}
+
 /* Vue audio */
 .icon-stop2,
 .vue-sound__playback-time-wrapper,
