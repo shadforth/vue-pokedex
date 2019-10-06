@@ -1,15 +1,3 @@
-<!--
-===============================================================================
-Pokemon.vue
-Parent container holding information and search panels.
-
-Last modified by: Jacqui Shadforth <jacqueline.shadforth@gmail.com>
-Date last modified: 24/04/2019
-===============================================================================
--->
-
-// HTML
-// ============================================================================
 <template>
   <b-container fluid>
     <div id="pokedex-container">
@@ -25,8 +13,6 @@ Date last modified: 24/04/2019
   </b-container>
 </template>
 
-// JavaScript
-// ============================================================================
 <script>
 import InformationPanel from "./InformationPanel";
 import SearchPanel from "./SearchPanel";
@@ -43,12 +29,9 @@ export default {
 };
 </script>
 
-// CSS
-// ============================================================================
 <style lang="scss" scoped>
 @import "../assets/css/colours";
 
-/* Fonts */
 h2 {
   font-size: 14px;
   font-weight: bold;

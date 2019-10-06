@@ -1,11 +1,3 @@
-<!--
-===============================================================================
-HeaderInformation.vue
-===============================================================================
--->
-
-// HTML
-// ============================================================================
 <template>
   <div>
     <span id="pokemon-id">#{{ pokemon.id }}</span><br />
@@ -35,8 +27,6 @@ HeaderInformation.vue
   </div>
 </template>
 
-// JavaScript
-// ============================================================================
 <script>
 import VueAudio from "vue-audio";
 
@@ -66,8 +56,6 @@ export default {
 };
 </script>
 
-// CSS
-// ============================================================================
 <style lang="scss" scoped>
 @import "src/assets/css/colours";
 
@@ -82,7 +70,6 @@ export default {
   padding: 5px;
 }
 
-/* Vue audio */
 .pokemon-cry {
   display: inline-block;
 }

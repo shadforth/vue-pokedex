@@ -1,12 +1,3 @@
-<!--
-===============================================================================
-InformationPanel.vue
-Left-hand side panel containing information about a selected Pokemon.
-===============================================================================
--->
-
-// HTML
-// ============================================================================
 <template>
   <div id="pokemon-info-panel">
     <img src="../assets/images/poke-ball.png" class="pokemon-info-panel-pokeball" />
@@ -20,8 +11,6 @@ Left-hand side panel containing information about a selected Pokemon.
   </div>
 </template>
 
-// JavaScript
-// ============================================================================
 <script>
 import BaseStatistics from "./information-panel/BaseStatistics.vue";
 import Evolutions from "./information-panel/Evolutions.vue";
@@ -58,7 +47,9 @@ export default {
     Weaknesses
   },
   methods: {
-    /** Retrieve the Pokemon JSON object from data.json. */
+    /** 
+     * Retrieve the Pokemon JSON object from data.json.
+     */
     getPokemon: function(data) {
       if (data != null) {
         let pokeid = data.id;
@@ -75,12 +66,9 @@ export default {
 };
 </script>
 
-// CSS
-// ============================================================================
 <style lang="scss" scoped>
 @import "../assets/css/colours";
 
-/* Pokemon */
 #pokemon-info-panel {
   height: 100vh;
   width: 100%;
@@ -104,7 +92,6 @@ export default {
   }
 }
 
-/* Responsive */
 @media only screen and (max-width: 1024px) {
   #description-container {
     padding: 5px 0 10px 0;

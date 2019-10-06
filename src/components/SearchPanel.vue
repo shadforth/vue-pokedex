@@ -1,15 +1,3 @@
-<!--
-===============================================================================
-SearchPanel.vue
-Right-hand side panel containing a search bar and Pokemon list.
-
-Last modified by: Jacqui Shadforth <jacqueline.shadforth@gmail.com>
-Date last modified: 24/04/2019
-===============================================================================
--->
-
-// HTML
-// ============================================================================
 <template>
   <div class="panel panel-default">
     <div id="table-overflow">
@@ -35,8 +23,6 @@ Date last modified: 24/04/2019
   </div>
 </template>
 
-// JavaScript
-// ============================================================================
 <script>
 import json from "../json/data.json";
 import EventBus from "../event-bus";
@@ -65,7 +51,9 @@ export default {
     };
   },
   methods: {
-    /** Retrieve the Pokemon JSON object from data.json. */
+    /** 
+     * Retrieve the Pokemon JSON object from data.json.
+     */
     getPokemon: data => {
       if (data != null) {
         let pokeid = data.id;
@@ -77,7 +65,9 @@ export default {
       }
     }
   },
-  /** Populate search panel with Pokemon. */
+  /** 
+   * Populate search panel with Pokemon.
+   */
   mounted: function() {
     for (let i in json) {
       let object = {};
@@ -91,8 +81,6 @@ export default {
 };
 </script>
 
-// CSS
-// ============================================================================
 <style lang="scss" scoped>
 @import "../assets/css/colours";
 
