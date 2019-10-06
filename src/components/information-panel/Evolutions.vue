@@ -1,11 +1,3 @@
-<!--
-===============================================================================
-Evolutions.vue
-===============================================================================
--->
-
-// HTML
-// ============================================================================
 <template>
   <div id="evol-container" v-if="pokemon.previous_evolution || pokemon.next_evolution">
     <h4 id="evol-title">Evolutions</h4>
@@ -36,8 +28,6 @@ Evolutions.vue
   </div>
 </template>
 
-// JavaScript
-// ============================================================================
 <script>
 import json from "../../json/data.json";
 
@@ -59,8 +49,6 @@ export default {
 };
 </script>
 
-// CSS
-// ============================================================================
 <style lang="scss" scoped>
 @import "src/assets/css/colours";
 

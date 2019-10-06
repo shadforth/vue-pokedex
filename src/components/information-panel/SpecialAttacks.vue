@@ -1,12 +1,3 @@
-
-<!--
-===============================================================================
-SpecialAttacks.vue
-===============================================================================
--->
-
-// HTML
-// ============================================================================
 <template>
   <div id="spec-attack-container">
     <h4 id="spec-attack-title">Special attacks</h4>
@@ -26,8 +17,6 @@ SpecialAttacks.vue
   </div>
 </template>
 
-// JavaScript
-// ============================================================================
 <script>
 export default {
   name: "SpecialAttacks",
@@ -39,8 +28,6 @@ export default {
 };
 </script>
 
-// CSS
-// ============================================================================
 <style lang="scss" scoped>
 #spec-attack-container {
   margin: 15px 0;

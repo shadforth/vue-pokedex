@@ -1,13 +1,9 @@
-// HTML
-// ============================================================================
 <template>
   <div id="app">
     <Pokedex />
   </div>
 </template>
 
-// JavaScript
-// ============================================================================
 <script>
 import Pokedex from "./components/Pokedex";
 
@@ -19,8 +15,6 @@ export default {
 };
 </script>
 
-// CSS
-// ============================================================================
 <style lang="scss">
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~bootstrap-vue/dist/bootstrap-vue.css";
