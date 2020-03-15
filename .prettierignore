@@ -4,3 +4,4 @@
 .prettierignore
 **/.DS_Store
 README.md
+/dist/
