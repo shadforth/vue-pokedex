@@ -10,8 +10,8 @@ import Pokedex from "./components/Pokedex";
 export default {
   name: "app",
   components: {
-    Pokedex
-  }
+    Pokedex,
+  },
 };
 </script>
 
@@ -19,7 +19,7 @@ export default {
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~bootstrap-vue/dist/bootstrap-vue.css";
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web");
-@import "assets/css/colours";
+@import "./shared/colours";
 
 body {
   border-top: 4px solid $red;

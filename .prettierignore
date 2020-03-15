@@ -1,0 +1,6 @@
+.gitignore
+.npmrc
+.nvmrc
+.prettierignore
+**/.DS_Store
+README.md

@@ -1,6 +1,9 @@
 <template>
   <div id="pokemon-info-panel">
-    <img src="../assets/images/poke-ball.png" class="pokemon-info-panel-pokeball" />
+    <img
+      src="../assets/images/poke-ball.png"
+      class="pokemon-info-panel-pokeball"
+    />
     <div v-show="Object.keys(pokemon.weight).length > 0">
       <HeaderInformation :pokemon="pokemon" />
       <BaseStatistics :pokemon="pokemon" />
@@ -32,11 +35,11 @@ export default {
         weight: {},
         height: {},
         fast_attacks: {},
-        special_attacks: {}
+        special_attacks: {},
       },
       props: {
-        pokemon: this.pokemon
-      }
+        pokemon: this.pokemon,
+      },
     };
   },
   components: {
@@ -44,10 +47,10 @@ export default {
     Evolutions,
     HeaderInformation,
     SpecialAttacks,
-    Weaknesses
+    Weaknesses,
   },
   methods: {
-    /** 
+    /**
      * Retrieve the Pokemon JSON object from data.json.
      */
     getPokemon: function(data) {
@@ -58,16 +61,16 @@ export default {
         }
         this.pokemon = json[Number.parseInt(pokeid) - 1];
       }
-    }
+    },
   },
   created() {
     EventBus.$on("getPokemon", data => (this.pokemon = data));
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/css/colours";
+@import "../shared/colours";
 
 #pokemon-info-panel {
   height: 100vh;

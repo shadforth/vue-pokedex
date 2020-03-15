@@ -8,9 +8,10 @@
         <td></td>
         <td></td>
         <td>
-          <div class="type-box type-box-sml" v-bind:class="attack.type.toLowerCase()">
-            {{ attack.type }}
-          </div>
+          <div
+            class="type-box type-box-sml"
+            v-bind:class="attack.type.toLowerCase()"
+          >{{ attack.type }}</div>
         </td>
       </tr>
     </table>
@@ -22,9 +23,9 @@ export default {
   name: "SpecialAttacks",
   props: {
     pokemon: {
-      type: Object
-    }
-  }
+      type: Object,
+    },
+  },
 };
 </script>
 

@@ -1,5 +1,8 @@
 <template>
-  <div id="evol-container" v-if="pokemon.previous_evolution || pokemon.next_evolution">
+  <div
+    id="evol-container"
+    v-if="pokemon.previous_evolution || pokemon.next_evolution"
+  >
     <h4 id="evol-title">Evolutions</h4>
     <table class="table responsive">
       <tr>
@@ -29,14 +32,12 @@
 </template>
 
 <script>
-import json from "../../json/data.json";
-
 export default {
   name: "Evolutions",
   props: {
     pokemon: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   methods: {
     /**
@@ -44,13 +45,13 @@ export default {
      * @param {String} id - The ID of the Pokemon.
      */
     getSprite: id =>
-      require("../../assets/sprites/" + String(id).padStart(3, "0") + ".png")
-  }
+      require("../../assets/sprites/" + String(id).padStart(3, "0") + ".png"),
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/css/colours";
+@import "../../shared/colours";
 
 #evol-container {
   margin: 15px 0;

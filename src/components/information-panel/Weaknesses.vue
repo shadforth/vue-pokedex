@@ -23,8 +23,8 @@ export default {
   name: "Weaknesses",
   props: {
     pokemon: {
-      type: Object
-    }
-  }
-}
+      type: Object,
+    },
+  },
+};
 </script>

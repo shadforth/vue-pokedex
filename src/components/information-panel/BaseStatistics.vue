@@ -10,10 +10,9 @@
           }}</span>
         </td>
         <td>
-          <strong>Generation</strong><br /><span
-            v-if="pokemon.generation"
-            >{{ pokemon.generation.split(" ")[1] }}</span
-          >
+          <strong>Generation</strong><br /><span v-if="pokemon.generation">{{
+            pokemon.generation.split(" ")[1]
+          }}</span>
         </td>
       </tr>
       <tr>
@@ -31,8 +30,8 @@ export default {
   name: "BaseStatistics",
   props: {
     pokemon: {
-      type: Object
-    }
-  }
+      type: Object,
+    },
+  },
 };
 </script>

@@ -5,9 +5,9 @@ import BootstrapVue from "bootstrap-vue";
 Vue.use(BootstrapVue);
 Vue.config.productionTip = false;
 
-require("./assets/css/types.scss");
+require("./shared/pokemonTypes.scss");
 
 /* eslint-disable no-new */
 new Vue({
-  render: h => h(App)
+  render: h => h(App),
 }).$mount("#app");

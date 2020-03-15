@@ -24,13 +24,13 @@ export default {
   },
   components: {
     InformationPanel,
-    SearchPanel
-  }
+    SearchPanel,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/css/colours";
+@import "../shared/colours";
 
 h2 {
   font-size: 14px;

@@ -16,8 +16,7 @@
           v-on:row-clicked="getPokemon"
           :sort-by.sync="sortBy"
           :sort-desc.sync="sortDesc"
-        >
-        </b-table>
+        ></b-table>
       </div>
     </div>
   </div>
@@ -38,20 +37,20 @@ export default {
         weight: {},
         height: {},
         fast_attacks: {},
-        special_attacks: {}
+        special_attacks: {},
       },
       fields: [
         { key: "id", sortable: true },
         { key: "name", sortable: true },
-        { key: "types", sortable: true }
+        { key: "types", sortable: true },
       ],
       sortBy: "id",
       sortDesc: false,
-      filter: null
+      filter: null,
     };
   },
   methods: {
-    /** 
+    /**
      * Retrieve the Pokemon JSON object from data.json.
      */
     getPokemon: data => {
@@ -63,9 +62,9 @@ export default {
         data.pokemon = json[parseInt(pokeid) - 1];
         EventBus.$emit("getPokemon", data.pokemon);
       }
-    }
+    },
   },
-  /** 
+  /**
    * Populate search panel with Pokemon.
    */
   mounted: function() {
@@ -77,12 +76,12 @@ export default {
       this.list.push(object);
     }
     this.getPokemon(json[0]);
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/css/colours";
+@import "../shared/colours";
 
 .panel {
   padding: 50px 50px 0 50px;
