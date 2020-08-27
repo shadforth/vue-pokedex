@@ -12,7 +12,7 @@ The Pokédex includes the first 251 Pokémon, with:
 - Evolutionary forms
 - Audio samples
 
-<img src="public/screenshot_v2.png" alt="Vue Pokédex" style="max-width:75%;margin: 0 auto;">
+<img src="screenshot_v2.png" alt="Vue Pokédex" style="max-width:65%;margin: 0 auto;">
 
 ## Getting Started
 
