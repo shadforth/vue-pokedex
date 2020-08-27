@@ -18,7 +18,6 @@ export default {
 <style lang="scss">
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~bootstrap-vue/dist/bootstrap-vue.css";
-@import url("https://fonts.googleapis.com/css?family=Titillium+Web");
 @import "./shared/colours";
 
 body {
@@ -26,7 +25,7 @@ body {
 }
 
 #app {
-  font-family: "Titillium Web", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

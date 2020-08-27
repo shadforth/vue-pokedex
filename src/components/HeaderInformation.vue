@@ -8,8 +8,14 @@
       v-for="type in pokemon.types"
       :key="type"
       v-bind:class="type.toLowerCase()"
-    >{{ type }}</div>
-    <VueAudio class="pokemon-cry" v-if="pokemon.id" :file="getAudio(pokemon.id)"></VueAudio>
+    >
+      {{ type }}
+    </div>
+    <VueAudio
+      class="pokemon-cry"
+      v-if="pokemon.id"
+      :file="getAudio(pokemon.id)"
+    ></VueAudio>
     <br />
     <div id="description-container">
       <img id="pokemon-sprite" v-if="pokemon.id" :src="getSprite(pokemon.id)" />
@@ -34,12 +40,12 @@ export default {
      * @param {String} id - The ID of the Pokemon.
      */
     getSprite: id =>
-      require("../../assets/sprites/" + String(id).padStart(3, "0") + ".png"),
+      require("../assets/sprites/" + String(id).padStart(3, "0") + ".png"),
     /**
      * Retrieve a Pokemon audio file.
      * @param {String} id - The ID of the Pokemon.
      */
-    getAudio: id => require("../../assets/audio/" + id + ".mp3"),
+    getAudio: id => require("../assets/audio/" + id + ".mp3"),
   },
   components: {
     VueAudio,
@@ -48,17 +54,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../shared/colours";
+@import "../shared/colours";
+@import "../shared/spacing";
 
 #pokemon-id {
   font-size: 16px;
-  color: $lightgrey;
+  color: $grey;
 }
 
 #pokemon-sprite {
   margin: 0 auto;
   display: block;
-  padding: 5px;
+  padding: $md;
 }
 
 .pokemon-cry {

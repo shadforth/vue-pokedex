@@ -82,9 +82,10 @@ export default {
 
 <style lang="scss" scoped>
 @import "../shared/colours";
+@import "../shared/spacing";
 
 .panel {
-  padding: 50px 50px 0 50px;
+  padding: $xl $xl 0 $xl;
 }
 
 /* Search table */
@@ -105,7 +106,7 @@ export default {
 }
 
 .pokedex-table {
-  padding: 15px;
+  padding: $lg;
   background: $white;
   cursor: pointer;
 }
@@ -113,12 +114,12 @@ export default {
 /* Search bar */
 #search-bar {
   width: 100%;
-  margin: 0 0 20px 0;
+  margin: 0 0 $lg 0;
   border: none;
-  border-bottom: 3px solid lighten($lightgrey, 28%);
+  border-bottom: 3px solid lighten($grey, 28%);
   border-radius: 0;
-  padding: 20px;
-  background: lighten($lightgrey, 28%);
+  padding: $lg;
+  background: lighten($grey, 28%);
   transition: border 0.2s linear;
 }
 
@@ -129,7 +130,7 @@ export default {
 }
 
 #search-bar:focus {
-  border-bottom: 3px solid lighten($lightgrey, 15%);
+  border-bottom: 3px solid lighten($grey, 15%);
 }
 
 .form-control {

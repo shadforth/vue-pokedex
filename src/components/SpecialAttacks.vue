@@ -11,7 +11,9 @@
           <div
             class="type-box type-box-sml"
             v-bind:class="attack.type.toLowerCase()"
-          >{{ attack.type }}</div>
+          >
+            {{ attack.type }}
+          </div>
         </td>
       </tr>
     </table>

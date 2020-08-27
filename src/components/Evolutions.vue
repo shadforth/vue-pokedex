@@ -45,29 +45,25 @@ export default {
      * @param {String} id - The ID of the Pokemon.
      */
     getSprite: id =>
-      require("../../assets/sprites/" + String(id).padStart(3, "0") + ".png"),
+      require("../assets/sprites/" + String(id).padStart(3, "0") + ".png"),
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../../shared/colours";
+@import "../shared/colours";
+@import "../shared/spacing";
 
 #evol-container {
-  margin: 15px 0;
+  margin: $md 0;
 }
 
 .pokemon-evol-sprite-container {
   float: left;
-  display: block;
-  margin: 10px 0;
-  padding: 0 20px 0 0;
-  text-align: center;
+  padding: 0 $lg;
 
   p {
     text-align: center;
-    margin-bottom: 5px;
-    color: $grey;
   }
 }
 </style>

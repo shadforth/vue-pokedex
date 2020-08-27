@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import BaseStatistics from "./information-panel/BaseStatistics.vue";
-import Evolutions from "./information-panel/Evolutions.vue";
-import HeaderInformation from "./information-panel/HeaderInformation.vue";
-import SpecialAttacks from "./information-panel/SpecialAttacks.vue";
-import Weaknesses from "./information-panel/Weaknesses.vue";
+import BaseStatistics from "./BaseStatistics.vue";
+import Evolutions from "./Evolutions.vue";
+import HeaderInformation from "./HeaderInformation.vue";
+import SpecialAttacks from "./SpecialAttacks.vue";
+import Weaknesses from "./Weaknesses.vue";
 
 import EventBus from "../event-bus";
 import json from "../json/data.json";
@@ -71,17 +71,19 @@ export default {
 
 <style lang="scss" scoped>
 @import "../shared/colours";
+@import "../shared/spacing";
 
 #pokemon-info-panel {
   height: 100vh;
   width: 100%;
-  margin: 0 0 5px 0;
-  border-right: 1px solid #eee;
-  padding: 50px;
+  margin-bottom: $sm;
+  border-right: $xxs solid $extralightgrey;
+  padding: $xxl;
   background-color: $white;
 
   h3 {
-    margin: -5px 0 0 -2px;
+    margin-top: -$sm;
+    margin-left: -$sm;
     font-size: 36px;
   }
 
@@ -97,14 +99,15 @@ export default {
 
 @media only screen and (max-width: 1024px) {
   #description-container {
-    padding: 5px 0 10px 0;
-    margin: 5px 0;
+    padding-top: $sm;
+    padding-bottom: $md;
+    margin: $sm 0;
   }
 
   #pokemon-sprite {
     display: block;
     float: left;
-    padding: 5px;
+    padding: $sm;
   }
 }
 </style>

@@ -31,6 +31,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../shared/colours";
+@import "../shared/spacing";
 
 h2 {
   font-size: 14px;
@@ -49,7 +50,7 @@ h4 {
   }
 
   #pokemon-info-panel {
-    margin: 0 0 15px 0;
+    margin-bottom: $md;
   }
 }
 </style>
