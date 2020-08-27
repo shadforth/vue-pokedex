@@ -60,3 +60,6 @@ typings/
 # Mac
 .DS_Store
 TODO
+
+# Build
+dist/
