@@ -7,6 +7,7 @@ let optimization = {};
 
 module.exports = {
     lintOnSave: false,
+    publicPath: '/vue-pokedex',
     configureWebpack: {
         plugins,
         optimization,
