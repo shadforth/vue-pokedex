@@ -8615,7 +8615,59 @@
     "id": "139",
     "name": "Omastar",
     "generation": "Generation I",
-    "types": ["Rock", "Water"]
+    "description": "Omastar is a Pokémon similar to an ammonite. Its sky blue body has several tentacles; the tentacles toward the front are shorter and thicker than those in the back.",
+    "types": ["Rock", "Water"],
+    "resistant": ["Normal", "Flying", "Poison", "Fire", "Ice"],
+    "weaknesses": ["Fighting", "Ground", "Grass", "Electric"],
+    "fast_attacks": [
+      {
+        "name": "Mud Shot",
+        "type": "Ground",
+        "damage": 6
+      },
+      {
+        "name": "Water Gun",
+        "type": "Water",
+        "damage": 6
+      },
+      {
+        "name": "Rock Throw",
+        "type": "Ground",
+        "damage": 12
+      }
+    ],
+    "special_attacks": [
+      {
+        "name": "Ancient Power",
+        "type": "Rock",
+        "damage": 35
+      },
+      {
+        "name": "Brine",
+        "type": "Water",
+        "damage": 25
+      },
+      {
+        "name": "Rock Tomb",
+        "type": "Rock",
+        "damage": 30
+      }
+    ],
+    "weight": {
+      "minimum": "35.0kg",
+      "maximum": "35.0kg"
+    },
+    "height": {
+      "minimum": "1.00m",
+      "maximum": "1.00m"
+    },
+    "buddy_distance": "5km (Medium)",
+    "base_stamina": "172",
+    "base_attack": "207",
+    "base_defense": "201",
+    "base_flee_rate": "9",
+    "max_cp": 2786,
+    "max_hp": 1119
   },
   {
     "id": "140",
