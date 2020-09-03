@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+GITHUB_USERNAME="shadforth"
+GITHUB_REPOSITORY="vue-pokedex"
+COMMIT_MESSAGE="Deploy to GH pages"
+BUILD_DIR="dist"
+
+echo "=== Building and deploying project..."
+
+cd "$(dirname "$0")/.."
+npm run build
+cd ${BUILD_DIR}
+
+git init
+git add -A
+git commit -m ${COMMIT_MESSAGE}
+
+git push -f git@github.com:${GITHUB_USERNAME}/${GITHUB_REPOSITORY}.git master:gh-pages
+
+echo "=== Deployment complete!"
