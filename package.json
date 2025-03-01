@@ -2,7 +2,7 @@
   "name": "pokedex",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "shadforth <jacqueline.shadforth@gmail.com>",
+  "author": "shadforth <jshadfo@gmail.com>",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
